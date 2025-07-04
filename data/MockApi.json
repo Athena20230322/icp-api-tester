@@ -1,0 +1,4562 @@
+[
+  {
+    "category": "Member Api",
+    "list": [
+
+
+      {
+        "host": "member",
+        "name": "M0001_1 刷新AppToken(2022)",
+        "url": "/app/MemberInfo/RefreshLoginToken",
+        "json": {
+          "CellPhone": "0976100001"
+        },
+        "specs": {
+          "CellPhone": "手機號碼，格式：09開頭，共10碼nd"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0001_1 刷新AppToken(2023)",
+        "url": "/app/MemberInfo/RefreshLoginToken2023",
+        "json": {
+          "IDNo": "A127070669"
+        },
+        "specs": {
+          "IDNo": "身分證字號"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0001 取得手機號碼",
+        "url": "/app/MemberInfo/getCellphone",
+        "json": {
+          "AuthV": "9c76e498dc58aba18d418d990049474b130aaf72efece63863af3416013be21391a6fcb159fe1c11657b09092caf6d373167264a5397da6aa6721c7dde2b6a32"
+        },
+        "specs": {
+          "AuthV": "OPEN WALLET 提供的AuthV"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0002 檢查會員驗證狀態",
+        "url": "/app/MemberInfo/CheckVerifyStatus",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0003_1 設定註冊資料(2022)",
+        "url": "/app/MemberInfo/SetRegisterInfo2022",
+        "json": {
+          "CellPhone": "0910000595",
+          "UserCode": "icp10655494",
+          "UserPwd": "Aa123456"
+        },
+        "specs": {
+
+          "CellPhone": "手機號碼，格式：09開頭，共10碼",
+          "UserCode": "登入帳號，格式：6-12碼半形英數混合",
+          "UserPwd": "登入密碼，格式：6-12碼半形英數混合",
+          "RCCode": "推薦碼"
+
+        }
+      },
+
+
+
+
+      {
+        "host": "member",
+        "name": "M0004 會員資料填寫及驗證",
+        "url": "/app/MemberInfo/AuthIDNO",
+        "json": {
+          "CName": "測試一",
+          "BirthDay": "2000-01-01",
+          "NationalityID": "1206",
+          "AreaID": "1001",
+          "Address": "123",
+          "Email": "",
+          "Idno": "E102152057",
+          "IssueDate": "2549-05-21",
+          "IssueLoc": "64000",
+          "IssueType": "3",
+          "LegalRepData": [
+            {
+              "LegalRepType": "1",
+              "LegalRepName": "孩子的爸",
+              "LegalRepIcpMID": "1681911000000221"
+            },
+            {
+              "LegalRepType": "1",
+              "LegalRepName": "孩子的媽",
+              "LegalRepIcpMID": "1681911000000236"
+            }
+          ],
+          "fileCols": "img1,img2"
+        },
+        "specs": {
+          "CName": "姓名",
+          "BirthDay": "生日，格式：yyyy-MM-dd",
+          "NationalityID": "國籍編號",
+          "AreaID": "縣市+鄉鎮市區",
+          "Address": "地址(巷弄路段號)",
+          "Email": "電子郵件帳號",
+          "Idno": "身份證字號",
+          "IssueDate": "發證日期，格式：yyyy-MM-dd",
+          "IssueLoc": "發證地點 (ex.10017)",
+          "IssueType": "換證類別 1：初發, 2：補發, 3：換發",
+          "LegalRepData": {
+            "name": "法定代理人資料",
+            "specs": {
+              "LegalRepType": "1",
+              "LegalRepName": "孩子的媽",
+              "LegalRepIcpMID": "1681911000000236"
+            }
+          },
+          "fileCols": "身份證正反面圖片"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0005_1會員登入",
+        "url": "/app/MemberInfo/UserCodeLogin2022",
+        "json": {
+          "LoginType": 1,
+          "UserCode": "tester182",
+          "UserPwd": "Aa123456",
+          "SMSAuthCode": ""
+
+
+
+        },
+        "specs": {
+          "LoginType": "登入方式 1：一般登入(預設) 2：圖形密碼",
+          "UserCode": "Clare123",
+          "UserPwd": "Aa123456",
+          "SMSAuthCode": "簡訊驗證碼 (提供換機驗證)"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0005會員登入",
+        "url": "/app/MemberInfo/UserCodeLogin",
+        "json": {
+          "LoginType": 1,
+          "UserCode": "adan0109",
+          "UserPwd": "",
+          "SMSAuthCode": "",
+          "Idno": "P122680069"
+
+        },
+        "specs": {
+          "LoginType": "登入方式 1：一般登入(預設) 2：圖形密碼",
+          "UserCode": "Clare123",
+          "UserPwd": "Aa123456",
+          "SMSAuthCode": "簡訊驗證碼 (提供換機驗證)"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0006 取得登入回傳資訊",
+        "url": "/app/MemberInfo/GetLoginInfo",
+        "json": {},
+        "specs": {}
+      },
+
+      {
+        "host": "member",
+        "name": "M0007 發送簡訊驗證_共用",
+        "url": "/app/MemberInfo/SendAuthSMS",
+        "json": {
+          "LoginTokenID": "",
+          "UserCode": "",
+          "CellPhone": "0976100001",
+          "SMSAuthType": 5
+        },
+        "specs": {
+          "LoginTokenID": "登入/註冊TokenID (SMSAuthType=1~5需傳)",
+          "UserCode": "登入帳號，格式：6-12碼半形英數混合※當SMSAuthType=2時必需帶入",
+          "CellPhone": "手機號碼檢查帶入的手機號碼與系統紀錄要發送的手機號碼是否一致",
+          "SMSAuthType": "驗證類別 1：註冊時發送簡訊 2：忘記登入密碼發送簡訊(未登入) 3：忘記登入帳號發送簡訊 4：忘記圖形密碼發送簡訊(未登入) 5：換機驗證發送簡訊 6：忘記原登入密碼發送簡訊(已登入) 7：忘記原圖形密碼發送簡訊(已登入) 8：修改手機號碼"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0007_1 發送簡訊驗證_共用",
+        "url": "/app/MemberInfo/SendAuthSMS2023",
+        "json": {
+          "LoginTokenID": "",
+          "UserCode": "",
+          "CellPhone": "",
+          "IDNo": "E102152057",
+          "SMSAuthType": 1,
+          "MID": ""
+        },
+        "specs": {
+          "LoginTokenID": "登入/註冊TokenID (SMSAuthType=1,2,3,5需傳)",
+          "UserCode": "登入帳號，格式：6-12碼半形英數混合※當SMSAuthType=2時必需帶入",
+          "CellPhone": "手機號碼檢查帶入的手機號碼與系統紀錄要發送的手機號碼是否一致",
+          "IDNo": "身份證字號 或 居留證號碼",
+          "SMSAuthType": "驗證類別 1：註冊時發送簡訊 2：忘記登入密碼發送簡訊(未登入) 3：忘記登入帳號發送簡訊 4：忘記圖形密碼發送簡訊(未登入) 5：換機驗證發送簡訊 6：忘記原登入密碼發送簡訊(已登入) 7：忘記原圖形密碼發送簡訊(已登入)"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0008 發送簡訊驗證_修改手機號碼",
+        "url": "/app/MemberInfo/ChangePhoneSendAuthSMS",
+        "json": {
+          "CellPhone": "0908009004"
+        },
+        "specs": {
+          "CellPhone": "手機號碼依帶入的手機號碼發送簡訊驗證"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0009 檢查簡訊驗證碼_共用",
+        "url": "/app/MemberInfo/CheckAuthSMS",
+        "json": {
+          "LoginTokenID": "",
+          "CellPhone": "0978139864",
+          "SMSAuthType": 1,
+          "AuthCode": "",
+          "Idno": "A111222335"
+        },
+        "specs": {
+          "LoginTokenID": "登入/註冊TokenID(SMSAuthType=1,2需傳)",
+          "CellPhone": "手機號碼",
+          "SMSAuthType": "驗證類別 2：忘記登入密碼發送簡訊(未登入) 3：忘記登入帳號發送簡訊 4：忘記圖形密碼發送簡訊(未登入) 6：忘記原登入密碼發送簡訊(已登入) 7：忘記原圖形密碼發送簡訊(已登入) 8：修改手機號碼發送簡訊(已登入)(當SMSAuthType=8，驗證通過時需一併更新手機號碼) ===========(1)：註冊時發送簡訊 (請使用 M0010 檢查簡訊驗證碼_註冊 驗證) (5)：換機驗證發送簡訊(請使用 M0005 會員登入 驗證)",
+          "AuthCode": "簡訊驗證碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0010 檢查簡訊驗證碼_註冊",
+        "url": "/app/MemberInfo/CheckRegisterAuthSMS",
+        "json": {
+          "LoginTokenID": "E4ED0A1F52EA443AB3262DF548F3F683",
+          "CellPhone": "0910000595",
+          "AuthCode": ""
+
+        },
+        "specs": {
+          "LoginTokenID": "登入/註冊TokenID",
+          "CellPhone": "手機號碼",
+          "AuthCode": "簡訊驗證碼"
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "M0011 變更登入密碼",
+        "url": "/app/MemberInfo/ChangeLoginPwd",
+        "json": {
+          "ChangeType": "1",
+          "OriginalLoginPwd": "Aa678910",
+          "NewLoginPwd": "Aa123456",
+          "ConfirmLoginPwd": "Aa123456"
+        },
+        "specs": {
+          "OriginalLoginPwd": "原登入密碼※當ChangeType=1時必填",
+          "NewLoginPwd": "新的登入密碼",
+          "ConfirmLoginPwd": "再次確認登入密碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0012 變更安全密碼",
+        "url": "/app/MemberInfo/ChangeSecurityPwd",
+        "json": {
+          "NewSecPwd": "135790",
+          "ConfirmSecPwd": "135790"
+        },
+        "specs": {
+          "NewSecPwd": "新的安全密碼",
+          "ConfirmSecPwd": "再次確認安全密碼"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0013 檢查安全密碼",
+        "url": "/app/MemberInfo/CheckSecurityPwd",
+        "json": {
+          "SecPwd": "123456"
+        },
+        "specs": {
+          "SecPwd": "安全密碼"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0014 變更圖形密碼",
+        "url": "/app/MemberInfo/ChangeGraphicLock",
+        "json": {
+          "NewGraphicPwd": "12345",
+          "ConfirmGraphicPwd": "12345"
+        },
+        "specs": {
+          "NewGraphicPwd": "新的圖形密碼",
+          "ConfirmGraphicPwd": "再次確認圖形密碼"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0015 檢查圖形密碼",
+        "url": "/app/MemberInfo/CheckGraphicLock",
+        "json": {
+          "GraphicPwd": "12345"
+        },
+        "specs": {
+          "GraphicPwd": "圖形密碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0016 設定指紋辨識及FaceID開關",
+        "url": "/app/MemberInfo/UpdateFingerPrintPwdStatus",
+        "json": {
+          "Status": "True"
+        },
+        "specs": {
+          "FingerPrintPwd": "狀態False：停用, True：啟用"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0017 驗證指紋辨識及FaceID",
+        "url": "/app/MemberInfo/CheckFingerPrintPwd",
+        "json": {
+          "FingerPrintPwd": "1d81fbe2-8352-43ec-81d8-87f78f4d3be0"
+        },
+        "specs": {
+          "FingerPrintPwd": "指紋/FaceID密碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0018 設定圖形密碼開關",
+        "url": "/app/MemberInfo/UpdateGraphicLockStatus",
+        "json": {
+          "Status": "False"
+        },
+        "specs": {
+          "Status": "狀態 False：停用, True：啟用"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0019 取得密碼設定開關狀態",
+        "url": "/app/MemberInfo/GetPasswordStatus",
+        "json": {
+        },
+        "specs": {
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0020 會員偏好設定",
+        "url": "/app/MemberInfo/UpdateMemberPreferences",
+        "json": {
+          "Options": [
+            {
+              "OptionName": "test1",
+              "OptionValue": "value1"
+            },
+            {
+              "OptionName": "test2",
+              "OptionValue": "value2"
+            }
+          ]
+        },
+        "specs": {
+          "Options": {
+            "name": "選項清單",
+            "specs": {
+              "OptionName": "設定名稱",
+              "OptionValue": "選項設定值"
+            }
+          }
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0021 取得會員偏好設定",
+        "url": "/app/MemberInfo/GetMemberPreferences",
+        "json": {
+          "OptionName": "test1"
+        },
+        "specs": {
+          "OptionName": "選項名稱"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0022 修改暱稱",
+        "url": "/app/MemberInfo/UpdateNickName",
+        "json": {
+          "NickName": "icpF002"
+        },
+        "specs": {
+          "NickName": "暱稱"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0023 修改Email",
+        "url": "/app/MemberInfo/UpdateEmailAddress",
+        "json": {
+          "Email": "test@icp.com.tw"
+        },
+        "specs": {
+          "Email": "電子郵件帳號"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0024 重設登入密碼",
+        "url": "/app/MemberInfo/ResetLoginPwd",
+        "json": {
+          "LoginTokenID": "",
+          "NewLoginPwd": "567890",
+          "ConfirmLoginPwd": "567890"
+        },
+        "specs": {
+          "LoginTokenID": "登入/註冊TokenID (帶入M0001回傳LoginTokenID)",
+          "NewLoginPwd": "新的登入密碼",
+          "ConfirmLoginPwd": "再次確認登入密碼"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0025 會員登出",
+        "url": "/app/MemberInfo/UserCodeLogout",
+        "json": {
+
+        },
+        "specs": {
+
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0026 取得銀行清單",
+        "url": "/app/MemberInfo/GetListBankInfo",
+        "json": {
+          "BankInfoType": "1"
+
+        },
+        "specs": {
+          "BankInfoType": "銀行資訊種類,1.提領銀行,2.轉帳銀行"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0027 銀行帳戶驗證",
+        "url": "/app/MemberInfo/BankAccountAuth",
+        "json": {
+          "BankCode": "013",
+          "BankType": "1"
+        },
+        "specs": {
+          "BankType": "銀行類別 1：合作銀行 2：非合作銀行",
+          "BankCode": "銀行代碼",
+          "BankAccount": "銀行帳號",
+          "BranchCode": "分行代碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0028 取得提領資訊",
+        "url": "/app/MemberInfo/GetWithdrawBalanceInfo",
+        "json": {},
+        "specs": {}
+      },
+
+      {
+        "host": "member",
+        "name": "M0029 更新會員同意項目",
+        "url": "/app/MemberInfo/SetMemberAgree",
+        "json": {
+          "AgreeItems": [
+
+            {
+              "AgreeType": 4,
+              "AgreeStatus": 1
+            }
+          ]
+        },
+
+        "specs": {
+          "AgreeItems": "同意項目",
+          "AgreeType": "同意項目1：個資聲明2：電子支付機構業務定型化契約3：隱私權政策與條款4：交易限額說明",
+          "AgreeStatus": "同意狀態0：尚未同意1：同意2：不同意"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0030 取得指定範圍訊息中心清單",
+        "url": "/app/MemberInfo/GetRangeNotifyMessageList",
+        "json": {
+          "MsgID": 0,
+          "Type": 1,
+          "Count": 100
+        },
+        "specs": {
+          "MsgID": "指定取得的ID(包含此ID)",
+          "Type": "取得指定取得ID的較新或較舊訊息 0：較舊 1：較新",
+          "Count": "撈取筆數"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0031 MID搜尋會員資料",
+        "url": "/app/ChatMember/QueryChatMemberByMID",
+        "json": {
+          "ChatMemberID": 14402,
+          "ArrayMID": [
+            10512782
+          ]
+        },
+        "specs": {
+          "ChatMemberID": "聊天會員編號",
+          "ArrayMID": "用來查詢的MID，限制100筆"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0032 設定訊息已讀",
+        "url": "/app/MemberInfo/SetReadMessage",
+        "json": {
+          "ReadAll": false,
+          "Params": [
+            {
+              "MsgID": 0
+            }
+          ]
+        },
+        "specs": {
+          "ReadAll": "是否已讀全部訊息 False：否(預設值) True：是",
+          "Params": {
+            "name": "額外參數 ※當ReadAll=False時，此欄位必填",
+            "specs": {
+              "MsgID": "訊息編號"
+            }
+          }
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0033 刪除訊息",
+        "url": "/app/MemberInfo/DeleteNotifyMessage",
+        "json": {
+          "DeleteAll": false,
+          "Params": [
+            {
+              "MsgID": 0
+            }
+          ]
+        },
+        "specs": {
+          "DeleteAll": "是否刪除全部訊息 False：否(預設值) True：是",
+          "Params": {
+            "name": "額外參數 ※當DeleteAll=False時，此欄位必填",
+            "specs": {
+              "MsgID": "訊息編號"
+            }
+          }
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0034 設定大頭貼",
+        "url": "/app/MemberInfo/SetProPic",
+        "json": {
+
+
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0035  刪除綁定銀行帳戶",
+        "url": "/app/MemberInfo/DelAccountBind",
+        "json": {
+          "AccountType": 1,
+          "BankCode": "004",
+          "AccountID": ""
+
+
+        },
+        "specs": {
+          "AccountType": "刪除帳戶類別 1：連結扣款帳戶 2：提領轉入帳戶",
+          "BankCode": "銀行代碼",
+          "AccountID": "銀行帳戶編號(系統定義流水號)"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0036 取得綁定銀行帳號",
+        "url": "/app/MemberInfo/GetBindAccountList",
+        "json": {
+          "AccountType": 1
+        },
+        "specs": {
+          "AccountType": "綁定帳戶類別 1：連結扣款 2：餘額提領轉入"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0037 首次登入設定帳密",
+        "url": "/app/MemberInfo/FirstLoginSetAccount",
+        "json": {
+          "UserCode": "Aa1234",
+          "LoginPwd": "Aa1234",
+          "ConfirmLoginPwd": "Aa1234"
+        },
+        "specs": {
+          "UserCode": "登入帳號，格式：6-12碼半形英數混合",
+          "LoginPwd": "登入密碼，格式：6-12碼半形英數混合",
+          "ConfirmLoginPwd": "再次確認登入密碼"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0038 記錄略過修改登入密碼",
+        "url": "/app/MemberInfo/SetLoginPwdIgnorDate",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0039 記錄略過修改安全密碼",
+        "url": "/app/MemberInfo/SetSecPwdIgnorDate",
+        "json": {
+
+        },
+        "specs": {
+
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0040 記錄略過修改圖形密碼",
+        "url": "/app/MemberInfo/SetGraphicLockIgnorDate",
+        "json": {
+
+        },
+        "specs": {
+
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0041 取得JSON Web Token",
+        "url": "/app/MemberInfo/GetJWTInfo",
+        "json": {},
+        "specs": {}
+      },
+
+      {
+        "host": "member",
+        "name": "NoUseM0041 Socket Server使用者驗證",
+        "url": "/api/Member/MemberInfo/PrivateUserAuth",
+        "json": {},
+        "specs": {}
+      },
+      {
+        "host": "websocket",
+        "name": "NoUseM0041 server-notification",
+        "url": "/api/notification",
+        "json": {
+          "to": "10524084",
+          "actionID": "301",
+          "data": ""
+        },
+        "specs": {}
+      },
+      {
+        "host": "member",
+        "name": "M0042 取得載具資訊",
+        "url": "/app/MemberInfo/GetEInvoiceCarrierInfo",
+        "json": {},
+        "specs": {}
+      },
+      {
+        "host": "member",
+        "name": "M0043 驗證手機條碼",
+        "url": "/app/MemberInfo/AuthCellPhoneCarrier",
+        "json": {
+          "CarrierNumber": "/AAAA",
+          "VerificationCode": "Test1234"
+        },
+        "specs": {}
+      },
+      {
+        "host": "member",
+        "name": "M0044 取得發票清單",
+        "url": "/app/MemberInfo/QueryEinvoiceList",
+        "json": {
+          "EinvoicePeriod": "11304"
+        },
+        "specs": {
+          "EinvoicePeriod": "發票期別 格式：YYYMM(民國年+當期別的偶數月份)※e.g. 108年01-02月，帶入10802"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0045 取得發票明細",
+        "url": "/app/MemberInfo/QueryEinvoiceDetail",
+        "json": {
+          "EinvoicePeriod": "11304",
+          "EinvoiceNum": "QQ-123456"
+        },
+        "specs": {
+          "EinvoicePeriod": "發票期別 格式：YYYMM(民國年+當期別的偶數月份)※e.g. 108年01-02月，帶入10802",
+          "EinvoiceNum": "發票號碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0046 取得帳戶狀態資訊",
+        "url": "/api/Member/MemberInfo/GetAccountStatusInfo",
+        "json": {},
+        "specs": {}
+      },
+
+      {
+        "host": "member",
+        "name": "M0047 帳戶結清",
+        "url": "/app/MemberInfo/CloseMemberAccount",
+        "json": {},
+        "specs": {}
+      },
+
+      {
+        "host": "member",
+        "name": "M0048 取得選單XML",
+        "url": "/app/MemberInfo/getAppXmlSetting",
+        "json": {
+          "XmlVersion": "1"
+        },
+        "specs": {
+          "XmlVersion": "XML 版號"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0049 取得交友邀請數",
+        "url": "/app/ChatMember/GetFriendInviteCounts",
+        "json": {},
+        "specs": {}
+      },
+      {
+        "host": "member",
+        "name": "M0050 取得已接收好友邀請清單",
+        "url": "/app/ChatMember/ListFriendInviteReceive",
+        "json": {
+          "PageNo": 1,
+          "PageSize": 10
+        },
+        "specs": {}
+      },
+      {
+        "host": "member",
+        "name": "M0051 取得已發送好友邀請清單",
+        "url": "/app/ChatMember/ListFriendInviteSend",
+        "json": {
+          "PageNo": 1,
+          "PageSize": 10
+        },
+        "specs": {
+          "PageNo": "分頁",
+          "PageSize": "分頁筆數"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0052 新增提領轉入帳戶",
+        "url": "/app/MemberInfo/AddWithdrawAccountBind",
+        "json": {
+
+
+          "BankAccount": "1682311000001441",
+          "BankCode": "392",
+          "BranchCode": ""
+        },
+        "specs": {
+
+          "BranchCode": "分行代碼",
+          "BankAccount": "銀行帳號",
+          "BankCode": "銀行代碼"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0053 餘額提領",
+        "url": "/app/MemberInfo/AddWithdrawBalance",
+        "json": {
+          "BankCode": "017",
+          "BankAccount": "00724070000001",
+          "AccountID": "38095",
+          "Amount": "20",
+          "AgreeLevelUp": false
+
+
+
+        },
+        "specs": {
+          "BankCode": "銀行代碼",
+          "BankAccount": "銀行帳號",
+          "AccountID": "銀行帳戶編號(系統定義流水號)",
+          "Amount": "提領金額",
+          "AgreeLevelUp": "是否同意升級為二類會員 False：不同意 True：同意"
+
+
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0054 同意好友邀請",
+        "url": "/app/ChatMember/AcceptFriendInvite",
+        "json": {
+          "FriendChatMID": ""
+        },
+        "specs": {
+          "FriendChatMID": "好友聊天會員編號"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0055 拒絕好友邀請",
+        "url": "/app/ChatMember/RejectFriendInvite",
+        "json": {
+          "FriendChatMID": ""
+        },
+        "specs": {
+          "FriendChatMID": "好友聊天會員編號"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0056 新增好友/發送好友邀請",
+        "url": "/app/ChatMember/AddFriends",
+        "json": {
+          "AddWay": 0,
+          "ArrayFriendMemberID": [
+            2845
+          ]
+        },
+        "specs": {
+          "ArrayFriendMemberID": "好友聊天會員編號"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0057 手機號碼搜尋會員資料",
+        "url": "/app/ChatMember/QueryChatMemberByCellPhone",
+        "json": {
+          "ChatMemberID": "14136",
+          "ArrayCellPhone": [
+            "0908009004"
+          ]
+
+        },
+        "specs": {
+          "ChatMemberID": "聊天會員編號",
+          "ArrayCellPhone": "用來查詢的手機號碼，限制100筆"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0058 取得系統維護開關",
+        "url": "/app/MemberInfo/GetMaintainStatus",
+        "json": {
+
+        },
+        "specs": {
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0059 取消好友邀請",
+        "url": "/app/ChatMember/CancelFriendsInvite",
+        "json": {
+          "FriendChatMID": "932"
+        },
+        "specs": {
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "NoUse M0060 取得會員詳細資料",
+        "url": "/app/MemberInfo/GetChatMemberInfo",
+        "json": {
+          "ArrayChatMemberID": [
+            14403
+          ]
+        },
+        "specs": {
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0061 設定黑名單",
+        "url": "/app/ChatMember/SetBlackList",
+        "json": {
+          "BlackMemberID": "14136",
+          "BlackType": "1"
+
+
+        },
+        "specs": {
+          "FriendChatMID": "好友聊天編號",
+          "IsFavorite": "設定最愛"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0062 設定我的最愛",
+        "url": "/app/ChatMember/SetFavorite",
+        "json": {
+          "FriendChatMID": "14403",
+          "IsFavorite": "1"
+
+
+        },
+        "specs": {
+          "FriendChatMID": "好友聊天編號",
+          "IsFavorite": "設定最愛"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0063 取得好友列表",
+        "url": "/app/ChatMember/ListFriends",
+        "json": {
+          "PageNo": "1",
+          "PageSize": "10"
+
+
+        },
+        "specs": {
+          "PageNo": "分頁",
+          "PageSize": "分頁筆數"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0064 更新好友列表",
+        "url": "/app/ChatMember/ListFriendsUpdate",
+        "json": {
+          "LastUpdateTime": "2025/01/01 00:00:00"
+
+
+        },
+        "specs": {
+          "LastUpdateTime": "最後更新時間 (取得該時間之後的更新) 格式：2019/01/01 00:00:00"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0065 取得聊天列表",
+        "url": "/app/ChatMember/ListDialog",
+        "json": {
+          "ArrayDialogID": null,
+          "PageNo": "1",
+          "PageSize": "10"
+
+        },
+        "specs": {
+          "ArrayDialogID": "指定查詢聊天室※ 若沒有帶入指定聊天室，則回傳有對話紀錄的所有聊天室清單",
+          "PageNo": "分頁",
+          "PageSize": "分頁筆數"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0066 取得聊天列表更新",
+        "url": "/app/ChatMember/ListDialogUpdate",
+        "json": {
+          "LastUpdateTime": "2025/01/01 00:00:00"
+
+
+        },
+        "specs": {
+          "LastUpdateTime": "最後更新時間 (取得該時間之後的更新) 格式：2019/01/01 00:00:00"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0067 刪除好友",
+        "url": "/app/ChatMember/RemoveFriends",
+        "json": {
+          "ArrayFriendMemberID": [ -291 ]
+
+
+        },
+        "specs": {
+          "ArrayFriendMemberID": "要刪除的聊天會員編號"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0068 取得隱私設定",
+        "url": "/app/ChatMember/GetPrivacySetting",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0069 更新允許自動加為好友設定",
+        "url": "/app/ChatMember/AllowAutoAddFriend",
+        "json": {
+          "Status": "1"
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0070 取得聊天訊息內容",
+        "url": "/app/ChatMember/ListMessage",
+        "json": {
+          "DialogID": "943",
+          "MsgIDLast": "0",
+          "PageSize": "10"
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0071 更新聊天訊息狀態",
+        "url": "/app/ChatMember/ReadMessage",
+        "json": {
+          "DialogID": "943",
+          "MsgIDLast": "0"
+
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0072 刪除聊天室",
+        "url": "/app/ChatMember/RemoveDialog",
+        "json": {
+          "ArrayDialogID": [
+            943
+          ]
+
+
+        },
+        "specs": {
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0075 取得分行代碼清單",
+        "url": "app/MemberInfo/ListBankBranch",
+        "json": {
+          "BankCode": "004"
+        },
+        "specs": {
+          "BankCode": "銀行代碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0076 訊息中心同步",
+        "url": "/app/MemberInfo/ListSynNotifyMessage",
+        "json": {
+          "MaxNID": null,
+          "MinNID": null,
+          "ModifyDate": 1559723427
+        },
+        "specs": {
+          "MaxNID": "ID區間 (最大)",
+          "MinNID": "ID區間 (最小)",
+          "ModifyDate": "最後一次更新的TimeStemp"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0077 取得訊息內容",
+        "url": "/app/MemberInfo/GetNotifyMessage",
+        "json": {
+          "MsgID": 0
+        },
+        "specs": {
+          "MsgID": "訊息ID"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0078 取得轉入者資料",
+        "url": "/app/ChatMember/CheckTransferReceiver",
+        "json": {
+          "ReceivedICPMID": "",
+          "ReceivedCName": ""
+        },
+        "specs": {
+          "ReceivedICPMID": "轉入者icash Pay電支帳號",
+          "ReceivedCName": "轉入者戶名"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0079 取會會員的聊天會員資料.",
+        "url": "/app/ChatMember/ListChatMember",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0080 取得黑名單列表",
+        "url": "/app/ChatMember/ListBlackList",
+        "json": {
+          "PageNo": "1",
+          "PageSize": "10"
+
+        },
+        "specs": {
+
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "M0084 取得線上開戶銀行清單",
+        "url": "/app/MemberInfo/GetListOnlineBankInfo",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0085 取得首頁banner廣告",
+        "url": "/app/MemberInfo/GetAD",
+        "json": {
+          "ADType": "1",
+          "ADStartTime": "2021/06/08 09:44:33",
+          "ADEndTime": "2023/06/20 09:44:33"
+
+        },
+        "specs": {
+          "ADType": "1.icash 2.0、2.首頁下方廣告、3.首頁上方廣告"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0086 信用卡解綁",
+        "url": "/app/MemberInfo/UnBindMemberCreditCard",
+        "json": {
+          "PanID": ""
+        },
+        "specs": {
+          "PanID": "信用卡ID"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0087 信用卡暱稱設定",
+        "url": "/app/MemberInfo/SetCreditCardAbbr",
+        "json": {
+          "PanID": "",
+          "CreditCardAbbr": ""
+        },
+        "specs": {
+          "PanID": "信用卡ID",
+          "CreditCardAbbr": "信用卡別名"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0088 信用卡綁定",
+        "url": "/app/MemberInfo/BindMemberCreditCard",
+        "json": {
+          "CustID": "A199716525",
+          "Pan": "4311952222222222",
+          "ExpDate": "202408",
+          "CVV2": "012",
+          "CheckMacValue": "1234567890"
+
+        },
+        "specs": {
+          "CustID": "身分證字號",
+          "Pan": "信用卡號",
+          "ExpDate": "信用卡號",
+          "CVV2": "卡片到期日",
+          "CheckMacValue": "檢核碼"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0089 取得icash2.0綁icashpay列表",
+        "url": "/app/ICash2Bind/ICash2BindList",
+        "json": {
+
+        },
+        "specs": {
+          "ICash2List": "icash 2.0 卡片列表"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0090 檢核icash2.0卡綁定狀態",
+        "url": "/app/ICash2Bind/ICash2Verify",
+        "json": {
+          "CardNo": "7111150355008600",
+          "Silver": "88194848"
+
+        },
+        "specs": {
+          "CardNo": "icash 2.0 卡號",
+          "Silver": "icash 2.0 銀漆碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0091 綁定icash2.0至icashpay",
+        "url": "/app/ICash2Bind/ICash2Binding",
+        "json": {
+          "CardNo": "",
+          "CardName": "",
+          "IsRegisted": "",
+          "BankCode": "",
+          "BankAccount": "",
+          "Name": "",
+          "TwId": "",
+          "Mobile": "",
+          "Email": "",
+          "Birthday": "",
+          "IssueDate": "",
+          "IssueType": "",
+          "IssueLoc": "",
+          "Country": "",
+          "ZipCode": "",
+          "Address": ""
+
+        },
+        "specs": {
+          "CardNo": "icash 2.0 卡號",
+          "CardName": "卡片自訂名稱",
+          "IsRegisted": "是否已記名 icash2.0",
+          "BankCode": "銀行別",
+          "BankAccount": "銀行帳戶",
+          "Name": "姓名",
+          "TwId": "身分證號",
+          "Mobile": "手機號碼",
+          "Email": "電子郵件信箱",
+          "Birthday": "生日",
+          "IssueDate": "發證日期",
+          "IssueType": "領補換代號",
+          "IssueLoc": "發證地點編號",
+          "Country": "國別",
+          "ZipCode": "郵遞區號",
+          "Address": "住址"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0092 解除icash2.0綁定icashpay",
+        "url": "/app/ICash2Bind/ICash2UnBinding",
+        "json": {
+          "CardNo": "7311220448001327"
+
+        },
+        "specs": {
+          "CardNo": "icash 2.0 卡號"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0093 取得行銷活動清單",
+        "url": "/app/MemberInfo/GetMainCampaignList",
+        "json": {
+          "isGetAll": "true"
+
+        },
+        "specs": {
+          "isGetAll": "是否取得全部行銷活動"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0094 指定行銷活動發動",
+        "url": "/app/MemberInfo/CampaignAction",
+        "json": {
+          "ActivityID": "",
+          "Action": ""
+
+        },
+        "specs": {
+          "ActivityID": "活動代號",
+          "Action": "活動動作"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0095 取得信用卡功能公告提示文字",
+        "url": "/app/MemberInfo/GetCreditCardBindHint",
+        "json": {
+
+
+        },
+        "specs": {
+          "": "取得信用卡功能公告提示文字"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0096 取得綁定資訊",
+        "url": "/app/ICash2Bind/ICash2BindInfo",
+        "json": {
+
+        },
+        "specs": {
+          "": ""
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0097 金融廣告資料查詢",
+        "url": "/app/MemberInfo/GetFinanceAD",
+        "json": {
+          "ADType": "0",
+          "ADStartTime": "2021/06/08 09:44:33",
+          "ADEndTime": "2025/01/08 09:44:33"
+        },
+        "specs": {
+          "ADType": "廣告位置 0: (預設)全撈 1: 快速貸款 2: 不綁約，隨時還清 3: 低利率 4: 優惠信用貸款",
+          "ADStartTime": "廣告時間區間(起)",
+          "ADEndTime": "廣告時間區間(迄)"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0098 檢查是否需要更新APP",
+        "url": "/app/MemberInfo/CheckIsUpdate",
+        "json": {
+          "VersionCode": "2.0.56"
+
+        },
+        "specs": {
+          "VersionCode": "APP版本號 格式：2.0.6"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0099 綁定認同卡",
+        "url": "/app/MemberInfo/BindBrandCreditCard",
+        "json": {
+          "CustID": "",
+          "PanID": ""
+
+
+        },
+        "specs": {
+          "CustID": "身分證字號",
+          "PanID": "信用卡ID"
+
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0100 會員資料重新驗證",
+        "url": "/app/MemberInfo/ReAuthID",
+        "json": {
+          "IssueDate": "2023-06-23",
+          "IssueLoc": "10017",
+          "IssueType": "1"
+        },
+        "specs": {
+          "IssueDate": "發證日期，格式：yyyy-MM-dd",
+          "IssueLoc": "發證地點 (ex.10017)",
+          "IssueType": "換證類別1：初發, 2：補發, 3：換發"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0101取得會員OP點數",
+        "url": "/app/MemberInfo/QueryMemberOpPoint",
+        "json": {
+
+
+        },
+        "specs": {
+          "": "取得會員OP點數"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0102 更新推播token",
+        "url": "/app/MemberInfo/UpdatePushToken",
+        "json": {
+          "PushToken": "cV18ClVPB_IAtkrNBheHNc:APA91bFT-nhH-faribP42Fz8o7qsmS9Cc_N3RGJXL3twkjnMUlQxlT7COgBAlBk4Pf3IbG6gIZ6A6LC-6YUpZK5Rk-5js4SayiV_2ohOBCRFAPF4mE51izrkPypgy8eioZVFziU5wFI9"
+
+        },
+        "specs": {
+          "": "更新推播token"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0103 中國信託HomeBank同意確認",
+        "url": "/app/MemberInfo/HomeBankChkAgreedTerms",
+        "json": {
+
+        },
+        "specs": {
+          "": "中國信託HomeBank同意確認"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0104 搜尋icashPay聯絡人",
+        "url": "/app/ChatMember/QueryTransferInfoByCellPhoneOrIcpmid",
+        "json": {
+          "QueryNo": "0977007001"
+
+        },
+        "specs": {
+          "QueryNo": "手機 or ICP MID"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0105_1 富邦產險廣告資料查詢(2022)",
+        "url": "/app/MemberInfo/GetInsuranceAD2022",
+        "json": {
+          "ADType": "0",
+          "ADStartTime": "2021/06/08 09:44:33",
+          "ADEndTime": "2023/06/20 09:44:33"
+
+        },
+        "specs": {
+          "ADType": "廣告種類 0: (預設)全撈 1: 廣告Banner2. 專屬優惠3. 熱門商品4. 險種選擇",
+          "ADStartTime": "廣告時間區間(起)",
+          "ADEndTime": "廣告時間區間(迄)"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0105 富邦產險廣告資料查詢",
+        "url": "/app/MemberInfo/GetInsuranceAD",
+        "json": {
+          "ADType": "0",
+          "ADStartTime": "2021/06/08 09:44:33",
+          "ADEndTime": "2023/06/08 09:44:33"
+
+        },
+        "specs": {
+          "ADType": "廣告種類 0: (預設)全撈 1: 廣告Banner2. 專屬優惠3. 熱門商品4. 險種選擇",
+          "ADStartTime": "廣告時間區間(起)",
+          "ADEndTime": "廣告時間區間(迄)"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0107 新增聯絡人_1",
+        "url": "/app/ChatMember/AddEcFriends",
+        "json": {
+
+
+          "AddWay": "30",
+          "EcAccount": "0958007001",
+          "EcBankCode": "392",
+          "FriendNickName": "第一名銀行"
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0107 新增聯絡人_2",
+        "url": "/app/ChatMember/AddEcFriends",
+        "json": {
+          "FriendsList": [
+            {
+              "IcpMID": "1682111000009639",
+              "ChatMemberID": "2846",
+              "NickName": "test01042",
+              "ProPic": "",
+              "ProPic_120X120": "",
+              "ProPic_60X60": "",
+              "BankName": "icash Pay",
+              "BankCode": "392",
+              "BankAccount": "1682111000009639",
+              "IsICPMember": "true",
+              "IsFriend": "1",
+              "IsFavorite": "0",
+              "CreateDate": "2023/12/20 16:35:37",
+              "ChatStatus": "1",
+              "InviteStatus": "1",
+              "FriendNickName": ""
+
+            }
+
+          ]
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0108編輯好友(包含編輯其他電子支付業者會員)",
+        "url": "/app/ChatMember/EditEcFriend",
+        "json": {
+          "FriendChatMID": "2846",
+          "EcBankCode": "392",
+          "EcAccount": "1682111000009639",
+          "FriendNickName": "測試第一銀行"
+
+        },
+        "specs": {
+          "ADType": "廣告種類 0: (預設)全撈 1: 廣告Banner2. 專屬優惠3. 熱門商品4. 險種選擇",
+          "ADStartTime": "廣告時間區間(起)",
+          "ADEndTime": "廣告時間區間(迄)"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0111 設定是否可被搜尋",
+        "url": "/app/ChatMember/UpdateMemberSearchEnableStatus",
+        "json": {
+          "SearchEnable": true
+
+        },
+        "specs": {
+          "SearchEnable": "可被搜尋開關"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0122 取得活動訊息",
+        "url": "/app/MemberInfo/GetActivityMessageList",
+        "json": {
+          "QueryTime": "2023/06/08 09:44:33"
+
+        },
+        "specs": {
+          "QueryTime": "查詢時間（此時間以前建立or修改的資料） 格式：2019/01/01 00:00:00"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0123 活動訊息刪除",
+        "url": "/app/MemberInfo/DeleteActivityMessage",
+        "json": {
+          "DeleteAll": false,
+          "Params": [
+            {
+              "MsgID": 0
+            }
+          ]
+
+        },
+        "specs": {
+          "DeleteAll": "是否刪除全部訊息False：否(預設值) True：是",
+          "Params": "額外參數※當DeleteAll=False時，此欄位必填"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0124 活動訊息設定已讀",
+        "url": "/app/MemberInfo/SetReadActivityMessage",
+        "json": {
+          "ReadAll": false,
+          "Params": [
+            {
+              "MsgID": 0
+            }
+          ]
+
+        },
+        "specs": {
+          "ReadAll": "是否已讀全部訊息False：否(預設值) True：是",
+          "Params": "額外參數※當ReadAll=False時，此欄位必填"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0125 取得帳戶紀錄列表",
+        "url": "/app/MemberInfo/GetAccountRecordList",
+        "json": {
+
+          "QueryStartTime": "2022/06/08 09:44:33",
+          "QueryEndTime": "2024/07/29 14:44:33",
+          "SortType": "0"
+        },
+        "specs": {
+          "QueryStartTime": "查詢紀錄起始時間 格式：2019/01/01 00:00:00",
+          "QueryEndTime": "查詢紀錄結束時間 格式：2019/01/01 00:00:00",
+          "SortType": "訊息排序方式 0：新到舊1：舊到新"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0126 取得帳戶詳細紀錄",
+        "url": "/app/MemberInfo/GetAccountDetailRecord",
+        "json": {
+
+          "RecordID": "240994"
+
+        },
+        "specs": {
+          "RecordID": "帳戶紀錄ID"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0127 查詢綁定會員特約機構",
+        "url": "/app/MemberInfo/QueryMMember",
+        "json": {
+
+
+        },
+        "specs": {
+
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "M0128 刪除綁定會員卡",
+        "url": "/app/MemberInfo/DeleteMMember",
+        "json": {
+
+          "AgencyID": ""
+
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0129 P55舊用戶重驗姓名",
+        "url": "/app/MemberInfo/UpdateCName",
+        "json": {
+
+
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0131 查詢會員OP開關",
+        "url": "/app/MemberInfo/QueryMemberPointSwitch",
+        "json": {
+
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0132 更新會員OP開關",
+        "url": "/app/MemberInfo/ChangeMemberPointSwitch",
+        "json": {
+          "ChangeOpPointSwitch": true
+
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0133 首頁霸屏廣告資料查詢",
+        "url": "/app/MemberInfo/GetActivityAD",
+        "json": {
+
+          "ADType": "0",
+          "ADStartTime": "2021/06/08 09:44:33",
+          "ADEndTime": "2023/06/08 09:44:33"
+
+        },
+        "specs": {
+          "ADType": "廣告類別"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0134 個人綜所稅查詢驗證身分",
+        "url": "app/MemberInfo/TaxVerifyID",
+        "json": {
+
+          "IDNO": "P122680069",
+          "SeqNo": "N2ZSF-DR295",
+          "PaymentType": "15001",
+          "Tax": "irx"
+
+        },
+        "specs": {
+          "ADType": "廣告類別"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0134 查詢法代審核資訊",
+        "url": "/app/MemberInfo/GetLegalRepList",
+        "json": {
+
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0135 法代同意未成年註冊及審核資料上傳",
+        "url": "/app/MemberInfo/updateLegalRepAgreeRegister",
+        "json": {
+
+          "fileCols": "img1,img2,img3,img4"
+
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0136 查詢未成年子女審核清單 ",
+        "url": "/app/MemberInfo/GetUnderageList",
+        "json": {
+
+
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "M0137 設定icash2.0綁定連結帳戶儲值",
+        "url": "/app/ICash2Bind/SetICash2TopUpBankAccount",
+        "json": {
+
+          "CardNo": "",
+          "IsOpenBindBank": "",
+          "PayID": ""
+
+        },
+        "specs": {
+          "CardNo": "icash 2.0 卡號",
+          "IsOpenBindBank": "是否開啟綁定銀行儲值功能true：銀行儲值開啟中false：銀行儲值關閉中",
+          "PayID": "付款方式識別碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0138取得轉入者資料",
+        "url": "/app/ChatMember/getTransferReceiverInfo",
+        "json": {
+
+          "ReceivedICPMID": "",
+          "BankCode": "",
+          "BankAccount": ""
+
+        },
+        "specs": {
+          "ReceivedICPMID": "轉入者icash Pay電支帳號 (icashPay會員，必填)",
+          "BankCode": "機構代號 (非icashPay會員，必填)",
+          "BankAccount": "機構帳號 (非icashPay會員，必填)"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0139 支付工具廣告查詢(2022)",
+        "url": "/app/MemberInfo/getPaymentToolAD",
+        "json": {
+
+          "ADType": "0",
+          "ADStartTime": "2021/06/08 09:44:33",
+          "ADEndTime": "2023/06/20 09:44:33"
+
+        },
+        "specs": {
+          "ADType": "廣告種類 0: (預設)全撈1: 銀行帳戶Banner2: 信用卡Banner",
+          "ADStartTime": "廣告時間區間(起)",
+          "ADEndTime": "廣告時間區間(迄)"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0140 取得銀行優惠廣告(2022)",
+        "url": "/app/MemberInfo/GetBankDiscount",
+        "json": {
+
+          "IsAccountLink": true
+
+
+        },
+        "specs": {
+          "IsAccountLink": "是否為銀行帳戶廣告"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0141 補傳會員身分證圖片(2022)",
+        "url": "/app/MemberInfo/AuthIDImage",
+        "json": {
+
+          "UpdateIDImageType": "0",
+          "UpdateUnderage": "",
+          "fileCols": "IDImage1,IDImage2"
+        },
+        "specs": {
+          "UpdateIDImageType": "需要更新身分證圖片資料種類0: 不需要更新1: P55需補身分證(本國成年人)2: 法代需補身分證3: 法代需補戶口名簿或戶籍謄本4: 法代需補身份證及戶口名簿/戶籍謄本5: 外國人需補居留證",
+          "UpdateUnderage": "未成年人MID"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "M0142 取得線上繳費主功能資訊(2022)",
+        "url": "/app/OnlinePayment/getOnlinePaymentBillList",
+        "json": {
+
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "M0143 取得項目之細項資訊(2022)",
+        "url": "/app/OnlinePayment/getOnlinePaymentBitsList",
+        "json": {
+          "ItemID": "001"
+
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "M0144取得常用帳單(2022)",
+        "url": "/app/OnlinePayment/GetCommonBillList",
+        "json": {
+
+          "NotifyID": "TPP00046"
+        },
+        "specs": {
+          "ItemID": "篩選項目(如未帶入item，返回全部常用設定)"
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "M0145新增常用帳單(2022)",
+        "url": "/app/OnlinePayment/AddCommonBill",
+        "json": {
+          "CommonName": "",
+          "ItemID": "TPP00046",
+          "BillData": {
+            "BillNumber": "AH-6999",
+            "EBillSN": "",
+            "QueryType": "1",
+            "Query1": "C",
+            "Query2": "AH-6999",
+            "Query3": "",
+            "Query4": "",
+            "Query5": ""
+
+
+          }
+        },
+        "specs": {
+          "CommonName": "常用帳單名稱",
+          "ItemID": "常用帳單項目",
+          "BillData": "常用帳單資料(水號、電號等...)"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0146編輯常用帳單(2022)",
+        "url": "/app/OnlinePayment/EditCommonBill",
+        "json": {
+          "CommonID": "",
+          "CommonName": "",
+          "ItemID": "",
+          "BillData": ""
+        },
+        "specs": {
+          "CommonID": "常用帳單ID",
+          "CommonName": "常用帳單名稱",
+          "ItemID": "常用帳單項目",
+          "BillData": "常用帳單資料(水號、電號等...)"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0147刪除常用帳單(2022)",
+        "url": "/app/OnlinePayment/DelCommonBillList",
+        "json": {
+          "CommonID": ""
+
+        },
+        "specs": {
+          "CommonID": "常用帳單ID"
+
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "M0148取得本月待繳帳單(2022)",
+        "url": "/app/OnlinePayment/GetWaitPaymentBillList",
+        "json": {
+          "ItemID": ""
+
+        },
+        "specs": {
+          "ItemID": "篩選項目(如未帶入item，返回全部待繳)"
+
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0149 檢查是否為OP會員(2022)",
+        "url": "/app/MemberInfo/CheckIsOP",
+        "json": {
+
+          "CellPhone": "0911273331"
+
+        },
+        "specs": {
+          "CellPhone": "註冊使用的手機號碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0150 註冊OP會員(2022)",
+        "url": "/app/MemberInfo/RegisterOpMember",
+        "json": {
+
+          "CellPhone": "0900000002",
+          "Birthday": "20000101"
+        },
+        "specs": {
+          "CellPhone": "註冊使用的手機號碼",
+          "Birthday": "出生日年月日 格式：YYYYMMDD,共8碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0151取得OP登入連結(2022)",
+        "url": "/app/MemberInfo/ReturnAuthAPIUrl",
+        "json": {
+
+          "CellPhone": "0900000002"
+        },
+        "specs": {
+          "CellPhone": "註冊使用的手機號碼"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0152確認金鑰是否為主要key(2022)",
+        "url": "/app/MemberInfo/CheckKeyStatus",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0153查詢登入記錄(2022)",
+        "url": "/app/MemberInfo/getLoginRecord",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0154 跑馬燈公告(2022)",
+        "url": "/app/MemberInfo/GetMarquee",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0155 取得Pcode2566銀行清單",
+        "url": "/app/MemberInfo/getPcodeBankList",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0156  發起Pcode2566帳戶驗證",
+        "url": "/app/MemberInfo/identityVerifyRequest",
+        "json": {
+
+          "BankCode": "009",
+          "BankAccount": "50509500179600"
+        },
+        "specs": {
+          "BankCode": "銀行代碼",
+          "BankAccount": "銀行帳號"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0157_1取得icash2.0首頁廣告(2022)",
+        "url": "/app/ICash2Bind/GetCardBannerInfo",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "M0157取得icash2.0首頁(2022)",
+        "url": "/app/ICash2Bind/GetCardPageInfo",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0158新增icash2.0卡片(2022)",
+        "url": "/app/ICash2Bind/AddCard",
+        "json": {
+          "CardName": "test0627",
+          "CardNumber": "1122334455",
+          "CardVC": "123123"
+        },
+        "specs": {
+          "CardName": "卡片名稱",
+          "CardNumber": "卡片號碼",
+          "CardVC": "卡片驗證碼"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0159編輯icash2.0卡片(2022)",
+        "url": "/app/ICash2Bind/EditCard",
+        "json": {
+          "CardID": "9517171005391803",
+          "CardName": "CUBE",
+          "IsAutoTopUp": "",
+          "IsAutoTopUpBank": ""
+
+
+        },
+        "specs": {
+          "CardID": "卡片編號",
+          "CardName": "卡片名稱",
+          "IsAutoTopUp": "是否開啟自動加值設定 (Table Status)",
+          "IsAutoTopUpBank": "是否開啟銀行自動加值設定",
+          "AutoTopUpPayID": "設定自動加值付款方式"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0160刪除icash2.0卡片(2022)",
+        "url": "/app/ICash2Bind/DeleteCard",
+        "json": {
+
+          "CardID": "33093"
+
+        },
+        "specs": {
+          "CardID": "卡片編號"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0161設定icash2.0卡片順序(2022)",
+        "url": "/app/ICash2Bind/SortCard",
+        "json": {
+
+          "SortCardList": ""
+
+        },
+        "specs": {
+          "SortCardList": "卡片順序List"
+
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0162查詢icash2.0單筆交易紀錄(2022)",
+        "url": "/app/ICash2Bind/GetRecord",
+        "json": {
+
+          "CardID": "33093",
+          "QueryType": "1"
+        },
+        "specs": {
+          "CardID": "卡片編號",
+          "QueryType": "查詢交易紀錄種類"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0163金融身份驗證(2022)",
+        "url": "/app/MemberInfo/ICPMemberConfirm",
+        "json": {
+
+
+          "Token": "1"
+        },
+        "specs": {
+
+          "Token": "金融驗證Token"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0164 取得推播通知(活動通知)",
+        "url": "/app/MemberInfo/GetPushList",
+        "json": {
+
+
+          "Page": 1,
+          "PageSize": 1,
+          "ModifyDate": "2024/01/15 11:19:06"
+        },
+        "specs": {
+
+          "page": "頁數",
+          "rows": "一頁筆數",
+          "ModifyDate": "取得最後更新的時間"
+        }
+      },
+      {
+        "host": "member",
+        "name": "M0165 設定推播通知(已讀)",
+        "url": "/app/MemberInfo/SetPushRead",
+        "json": {
+
+
+          "TraceId": 1,
+          "SetAll": 1
+
+        },
+        "specs": {
+
+          "page": "頁數",
+          "rows": "一頁筆數",
+          "ModifyDate": "取得最後更新的時間"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0166 刪除推播通知",
+        "url": "/app/MemberInfo/SetPushDelete",
+        "json": {
+
+
+          "TraceId": 1,
+          "SetAll": 0
+
+        },
+        "specs": {
+
+          "page": "頁數",
+          "rows": "一頁筆數",
+          "ModifyDate": "取得最後更新的時間"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0167APP首頁廣告",
+        "url": "/app/MemberInfo/GetAPPAd",
+        "json": {
+
+
+
+          "ADType": "1"
+
+        },
+        "specs": {
+
+          "ADType": "廣告種類: 0:APP首頁跑馬燈 1:APP霸屏廣告 2:APP浮動廣告 3:首頁-Banner 4:首頁-保險廣告 5:首頁-基金廣告 6:首頁-信貸廣告 7:首頁-點數廣告專區 8:首頁-銀行專區廣告 9:支付工具-銀行優惠"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0168APP廣告活動內頁",
+        "url": "/app/MemberInfo/GetAPPAdActivity",
+        "json": {
+
+
+
+          "ADID": "1"
+
+        },
+        "specs": {
+
+          "ADID": "廣告ID"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0169廣告最後更新時間",
+        "url": "/app/MemberInfo/GetAPPAdUpdate",
+        "json": {
+
+
+
+          "Type": "0"
+
+        },
+        "specs": {
+
+          "Type": "最後更新類別： 0：APP首頁廣告"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0170取得繳費項目資料",
+        "url": "/app/OnlinePayment/getBitsItemData",
+        "json": {
+
+
+        },
+        "specs": {
+
+          "ItemID": "篩選項目(如未帶入item，返回全部常用設定)"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0172 玉山快綁卡片綁定請求",
+        "url": "/app/MemberInfo/EsunSpeedBindCardPush",
+        "json": {
+
+
+        },
+        "specs": {
+
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0174APP廣告",
+        "url": "/app/MemberInfo/GetAllAPPAd",
+        "json": {
+
+
+        },
+        "specs": {
+
+          "ADData": "廣告資訊"
+
+        }
+      },
+
+      {
+        "host": "pluspayment",
+        "name": "M0180檢查是否已登入TPass2.0",
+        "url": "/app/MemberInfo/CheckIsTPass2",
+        "json": {
+
+
+        },
+        "specs": {
+
+          "": "檢查是否已登錄TPass2.0"
+
+        }
+      },
+
+
+      {
+        "host": "pluspayment",
+        "name": "M0186TPass2.0查詢紀錄",
+        "url": "/app/MemberInfo/TPass2Feedback",
+        "json": {
+
+
+        },
+        "specs": {
+
+          "": "檢查是否已登錄TPass2.0"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "M0187記錄登出的原因",
+        "url": "/app/MemberInfo/LoginReason",
+        "json": {
+
+
+          "Type": "3",
+          "Info": ""
+
+
+        },
+        "specs": {
+
+          "": "記錄登出的原因"
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "ML201-發送OTP驗證.",
+        "url": "/MemberInfo/SendOTP",
+        "json": {
+
+
+          "CellPhone": "0976100009",
+          "SMSAuthType": 1,
+          "Token": "",
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023"
+
+        },
+        "specs": {
+
+          "CellPhone": "使用者輸入的手機號碼^09[0-9]{8}$",
+          "SMSAuthType": "驗證類型  1:手機驗證 4:安全密碼OTP",
+          "Token": "識別使用者呼叫API權限。若Token不為空則視為安全密碼修改，否則為初次使用APP"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML202-檢核手機OTP",
+        "url": "/MemberInfo/VerifyOTP",
+        "json": {
+
+
+          "CellPhone": "0976100009",
+          "SMSAuthType": 1,
+          "AuthCode": "",
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023"
+
+
+        },
+        "specs": {
+
+          "CellPhone": "使用者輸入的手機號碼",
+          "SMSAuthType": "驗證類型  1:手機驗證 4:安全密碼OTP",
+          "AuthCode": "長度限制6字元。使用者輸入的一次性密碼",
+          "Token": "識別使用者呼叫API權限。若Token不為空則視為安全密碼修改，否則為初次使用APP"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML203-檢核帳號",
+        "url": "/MemberInfo/VerifyAccount",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "Account": "tester1901"
+
+        },
+        "specs": {
+
+
+          "Account": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MD202-查詢會員資料",
+        "url": "/MemberInfo/GetMemberData",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "MemberDataType": 1
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限",
+          "MemberDataType": "回傳會員資料類型"
+        }
+      },
+      {
+        "host": "member",
+        "name": "ML205-檢核安全密碼",
+        "url": "/MemberInfo/VerifySecurityCode",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "CodeType": 0,
+          "SecurityCode": "246790"
+
+        },
+        "specs": {
+
+
+          "Account": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+      {
+        "host": "member",
+        "name": "ML206-檢核綁定裝置",
+        "url": "/MemberInfo/VerifyDeviceID",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+
+
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+      {
+        "host": "member",
+        "name": "MD205-重新綁定裝置",
+        "url": "/MemberInfo/SetDeviceID",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "IDNumber": "A156775646"
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限",
+          "CodeType": "0: 六位數安全密碼1: 圖形密碼2: 生物辨識密碼",
+          "SecurityCode": "六位數密碼: 僅限數字、不可為連號(123456)或相同數字(111111)"
+        }
+      },
+      {
+        "host": "member",
+        "name": "MD201-取得跳轉頁面",
+        "url": "/MemberInfo/GetMemberStatus",
+        "json": {
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限Token"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML210-登入",
+        "url": "/MemberInfo/MemberLogin",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+
+
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "MD202-查詢會員資料",
+        "url": "/MemberInfo/GetMemberData",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "MemberDataType": 7
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限",
+          "MemberDataType": "回傳會員資料類型"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML204-檢核登入密碼",
+        "url": "/MemberInfo/VerifyPassword",
+        "json": {
+
+
+
+          "Vers": "3.0.1.0",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "Password": "1qaz2wsx"
+
+        },
+        "specs": {
+
+
+          "Account": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "ML207-檢核忘記帳號",
+        "url": "/MemberInfo/VerifyForgotAccount",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7aa",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "RealIP": 0,
+          "ProxyIP": 0,
+          "Token": "",
+          "IDNumber": "A156775646",
+          "Birthday": "1986-12-29"
+
+        },
+        "specs": {
+
+
+          "Account": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML208-檢核忘記密碼",
+        "url": "/MemberInfo/VerifyForgotPassword",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "Account": "tester341",
+          "IDNumber": "B185952970",
+          "PhoneNumber": "N165234793"
+
+        },
+        "specs": {
+
+
+          "Account": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML209-舊版會員轉為新版",
+        "url": "/MemberInfo/MemberTransformNewVersion",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "RealIP": 0,
+          "ProxyIP": 0,
+          "Token": ""
+
+
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "ML211-檢核忘記六位安全密碼",
+        "url": "/MemberInfo/VerifyForgotSecurityCode",
+        "json": {
+
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "IDNumber": "B185952970"
+
+
+        },
+        "specs": {
+
+
+          "IDNumber": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "使用者輸入的身分證字號或是統一編號。須符合身分證規則或統一證號規則"
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "MR201-新建暫存會員",
+        "url": "/MemberInfo/InsertTempMember",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "PhoneNumber": "0910000470"
+
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限",
+          "PhoneNumber": "長度限制10字元，使用者輸入的手機號碼"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MD203-設定登入帳號",
+        "url": "/MemberInfo/SetAccount",
+        "json": {
+
+          "Account": "icp10655372",
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+        },
+        "specs": {
+
+          "Account": "限制6~12英數混合字元，使用者輸入的帳號",
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MD204-設定安全密碼",
+        "url": "/MemberInfo/SetSecurityCode",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "CodeType": 0,
+          "SecurityCode": "246790"
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限",
+          "CodeType": "0: 六位數安全密碼1: 圖形密碼2: 生物辨識密碼",
+          "SecurityCode": "六位數密碼: 僅限數字、不可為連號(123456)或相同數字(111111)"
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "MD206-設定登入密碼",
+        "url": "/MemberInfo/SetPassword",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "RealIP": 0,
+          "ProxyIP": 0,
+          "Token": "",
+          "Password": "Aa123456"
+
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限",
+          "Password": "限制6~20英數混合字元，使用者輸入的密碼"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MR205-設定法定代理人",
+        "url": "/MemberInfo/SetLegalAgent",
+        "json": {
+
+
+
+
+          "LegalAgentData": [
+            {
+              "IDNO": "B186133826",
+              "Name": "林林",
+              "PhoneNumber": "0922000232"
+            },
+            {
+              "INDO": "P12345678",
+              "Name": "旺旺",
+              "PhoneNumber": "0933000232"
+            }
+
+          ],
+          "LegalAgentType": "1",
+          "Token": "",
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023"
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": "MR206-建立正式會員",
+        "url": "/MemberInfo/InsertMember",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限",
+          "CodeType": "0: 六位數安全密碼1: 圖形密碼2: 生物辨識密碼",
+          "SecurityCode": "六位數密碼: 僅限數字、不可為連號(123456)或相同數字(111111)"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MD207-取得設定檔資料",
+        "url": "/MemberInfo/GetConfig",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MD208-取得法定代理人資料",
+        "url": "/MemberInfo/GetTeenagersLegalData",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+        }
+
+      },
+
+      {
+        "host": "member",
+        "name": "MD211-IgnoreChangeSecurityCode",
+        "url": "/MemberInfo/IgnoreChangeSecurityCode",
+        "json": {
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "CodeType": "0"
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MR202-設定本國人身分驗證資料",
+        "url": "/MemberInfo/SetAuthIdentity",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "CName": "測試帳號",
+          "Birthday": "1990/01/01",
+          "AreaID": "1001",
+          "Address": "台北市內湖區瑞光路200號",
+          "IDNO": "B115834163",
+          "IssueDate": "2024/02/19",
+          "IssueLocation": "10001",
+          "IssueType": "3",
+          "fileCols": "img1,img2"
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MR202-設定本國人身分驗證資料_未成年",
+        "url": "/MemberInfo/SetAuthIdentity",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7aa",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "RealIP": 0,
+          "ProxyIP": 0,
+          "Token": "",
+          "CName": "測試青少年",
+          "Birthday": "2008/01/01",
+          "AreaID": "10",
+          "Address": "123",
+          "IDNO": "B186133826",
+          "IssueDate": "2023/12/11",
+          "IssueLocation": "67000",
+          "IssueType": "1",
+          "fileCols": "img1,img2"
+
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "MR203-設定外國人身份驗證資料",
+        "url": "/MemberInfo/SetAuthIdentityForeign",
+
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "Birthday": "1990/01/01",
+          "CName": "傑夫",
+          "EName": "Jeff",
+          "NationalityID": "1056",
+          "ResidentPermitID": "DA71832956",
+          "ResidentPermitNumber": "F160000001",
+          "ResidentPermitType": 1,
+          "ResidentPermitIssueDate": "2024/01/01",
+          "ResidentPermitExpireDate": "",
+          "fileCols": "img1,img2"
+
+
+        },
+
+
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MR204-執行身分驗證流程",
+        "url": "/MemberInfo/ExcuteAuthIdentity",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+
+
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MR208-修改姓名",
+        "url": "/MemberInfo/EditName",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "Name": "測試帳號"
+
+
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "MD212-UploadAuthImages",
+        "url": "/MemberInfo/UploadAuthImages",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": "",
+          "UpdateIDImageType": "1",
+          "IDImage1": "img1",
+          "IDImage2": "img2"
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "MD213-會員交易地區",
+        "url": "/MemberInfo/SetTradeRegion",
+        "json": {
+
+
+          "NationalityCode": "TWN"
+
+        },
+        "specs": {
+
+          "NationalityCode": "國家英文簡稱KOR"
+
+        }
+      },
+
+
+      {
+        "host": "member",
+        "name": "MR209-檢核中信資料共享會員身分",
+        "url": "/MemberInfo/VerifySharedMember",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+
+
+
+
+        },
+        "specs": {
+
+          "Token": "識別使用者呼叫API權限"
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MD206-設定登入密碼",
+        "url": "/MemberInfo/SetPassword",
+        "json": {
+
+
+          "Vers": "3.0.1.155",
+          "DeviceInfo": "Pixel 7aa",
+          "DeviceID": "b3f194a32647b4f4",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "RealIP": 0,
+          "ProxyIP": 0,
+          "Token": "",
+          "Password": "Aa123456"
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限",
+          "Password": "限制6~20英數混合字元，使用者輸入的密碼"
+        }
+      },
+
+
+
+      {
+        "host": "member",
+        "name": " ML209-舊版會員轉為新版",
+        "url": "/MemberInfo/MemberTransformNewVersion",
+        "json": {
+
+
+          "Vers": "3.0.1.0",
+          "DeviceInfo": "Pixel 7aa",
+          "DeviceID": "b3f194a32647b4f4",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "RealIP": 0,
+          "ProxyIP": 0,
+          "Token": ""
+        },
+        "specs": {
+
+          "CellPhone": "使用者輸入的手機號碼^09[0-9]{8}$",
+          "AuthType": "驗證類型  1:手機驗證 4:安全密碼OTP",
+          "Token": "識別使用者呼叫API權限。若Token不為空則視為安全密碼修改，否則為初次使用APP"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MP001取得推播設定",
+        "url": "/app/MemberInfo/GetPushTokenSetting",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MP002設定推播狀態",
+        "url": "/app/MemberInfo/SettingPushTokenStatus",
+        "json": {
+
+          "IsOpenVoice": "false",
+          "IsOpenNotification": "false",
+          "IsOpenPayResult": "false"
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "MOP201-綁定OP會員",
+        "url": "/MemberInfo/BindOpenPointMember",
+        "json": {
+
+          "Vers": "3.0.1.0",
+          "DeviceInfo": "Pixel 7bb",
+          "DeviceID": "b4f194a32647b4f5",
+          "IsSimulator": "0",
+          "OS": "2",
+          "OSVersion": "13",
+          "AppName": "icashpay2023",
+          "Token": ""
+        },
+        "specs": {
+
+
+          "Token": "識別使用者呼叫API權限",
+          "Password": "限制6~20英數混合字元，使用者輸入的密碼"
+        }
+      }
+
+
+
+    ]
+  },
+  {
+    "category": "Payment Api",
+    "list": [
+      {
+        "host": "payment",
+        "name": "P0001 產生付款條碼",
+        "url": "/app/Payment/CreateBarcode",
+        "json": {
+
+          "PayID": "11682111000009624",
+          "PaymentType": "1"
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0002 取得會員全付款方式",
+        "url": "/app/Payment/GetMemberPaymentInfo",
+        "json": {
+          "MerchantID": "",
+          "IsAutoPay": "false"
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0003 取得支付指示頁資料",
+        "url": "/app/Payment/GetOnlineOrderInfo",
+        "json": {
+          "PayID": "",
+          "MerchantID": "",
+          "MerchantTradeNo": ""
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0004 取得帳戶餘額",
+        "url": "/app/Payment/GetTotalCoins",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0005 取得轉帳Token",
+        "url": "/app/TransferAccount/GetTransferToken",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0006 取得儲值通路清單",
+        "url": "/app/TopUpPayment/GetListChannelInfo",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0007 產生通路儲值條碼",
+        "url": "/app/TopUpPayment/GetTopUpBarCode",
+        "json": {
+          "Amount": 10,
+          "TopUpType": 1
+        },
+        "specs": {
+          "Amount": "現金儲值、自帶杯儲值帶入大於0",
+          "TopUpType": "儲值方式 1：現金, 2：中獎發票"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "CK04廠商金鑰綁定",
+        "url": "/app/certificate/bindMerchantCert",
+        "json": {
+          "MerchantID": "10000016",
+          "Token": "68158248615C445EB9FD2069794F1C71"
+
+
+        },
+        "specs": {
+          "MerchantID": "",
+          "Token": ""
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0008 取得連結帳戶儲值頁資料",
+        "url": "/app/TopUpPayment/GetTopUpByAccountLinkInfo",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0009 取得虛擬帳號儲值頁資料",
+        "url": "/app/TopUpPayment/GetTopUpByATMInfo",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0010 連結帳戶儲值",
+        "url": "/app/AccountLink/TopUpByAccountLink",
+        "json": {
+          "BankCode": "050",
+          "AccountID": "21917",
+          "Amount": 10
+        },
+        "specs": {
+          "BankCode": "銀行代碼",
+          "AccountID": "銀行帳戶編號(系統定義流水號)",
+          "Amount": "交易金額"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0011 虛擬帳號儲值",
+        "url": "/app/TopUpPayment/TopUpByATM",
+        "json": {
+          "BankCode": "007",
+          "Amount": 100
+        },
+        "specs": {
+          "BankCode": "銀行代碼",
+          "Amount": "交易金額"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0012 設定自動儲值開關",
+        "url": "/app/TopUpPayment/SetAutoTopUpSwitch",
+        "json": {
+          "TopUpSwitch": 1
+        },
+        "specs": {
+          "TopUpSwitch": "自動儲值開關 0：關閉 1：開啟"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0013 設定自動儲值條件",
+        "url": "/app/TopUpPayment/SetAutoTopUpCondition",
+        "json": {
+          "TopUpMode": 1,
+          "LimitAmount": 5000,
+          "DailyLimitAmount": 10000,
+          "AccountID": 21917,
+          "TopUpUnit": 100,
+          "TopUpSwitch": 1
+        },
+        "specs": {
+          "TopUpMode": "自動儲值模式 1：差額儲值 2：定額儲值",
+          "LimitAmount": "每次自動儲值限額",
+          "DailyLimitAmount": "每日自動儲值限額",
+          "AccountID (選填)": "銀行帳戶編號(系統定義流水號)",
+          "TopUpUnit (選填)": "定額儲值金額基數",
+          "TopUpSwitch (選填)": "自動儲值開關 0：關閉 1：開啟"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0014 取得自動儲值資料",
+        "url": "/app/TopUpPayment/GetAutoTopUpInfo",
+        "json": {
+
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0015 取得交易限額資料",
+        "url": "/app/Payment/GetAccountLimitInfo",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0016 發送轉帳",
+        "url": "/app/TransferAccount/SentTransferMsg",
+        "json": {
+          "PayChatMID": "3362",
+          "ReceivedChatMID": "15005",
+          "TransferAmount": "100",
+          "TradeToken": 21917,
+          "PaymentType": "1"
+        },
+        "specs": {
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0017查詢QR Code資訊",
+        "url": "/app/Payment/QueryQRInfo",
+        "json": {
+          "MerchantQRcode": "https://payment.icashpay.com.tw/Payment/ONLMerchant/SendBindingInfo?EncData=HOx7ri9szwSJkh%2FEsC2bmuvywbMm4mV7ifHjpD5OBJtXxuojmHR1kZC%2FhLYQbSthSEr2%2FENLQ3Gczj3alkxZcoI9bXmn9iF4PSv1mOlrYVOm2EmlDFawXQAzTnsYdrU8kbxguVQYFQMfG%2BnlRDmIyPHNxsDn66EjjJ1tFoq%2B7nPf2Kri01Yt5SY6xMljANQg5PVXiwr59WtCTDM%2FOZ0kvM6ANZQJZVvAChTpUY1lY1Plt5tb0dh%2FA1zKySKcN%2F5yHi%2BnLg%2B02Z7F7sqaLBtsZ0n5neOfV6mzGT4tyn%2BAD9h2DSGN7HDfRs5CYPuFUTcz36hhO7u8v05m2afUYgALfu86U%2BdC%2F9B8pmuySSgRhAc%3D"
+
+
+        },
+        "specs": {
+          "MerchantQRcode": "QRCode URL"
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0018 確認支付QrCode",
+        "url": "/app/Payment/DoQRPayment",
+        "json": {
+          "MerchantID": "10524634",
+          "Amount": "50",
+          "PayID": "11682311000001441",
+          "Mission": "",
+          "Team_number": "",
+          "MerchantTradeNo": "202405201420400000",
+          "StoreID": "",
+          "StoreName": ""
+
+        },
+        "specs": {
+          "MerchantID": "廠商編號",
+          "Amount": "交易金額",
+          "PayID": "付款方式識別碼",
+          "Mission": "任務編號",
+          "Team_number": "車隊編號",
+          "MerchantTradeNo": "特店訂單編號",
+          "StoreID": "分店編號",
+          "StoreName": "分店名稱"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0019 線上繳費付款",
+        "url": "/app/Cashier/ChargeOnlineICPO",
+        "json": {
+
+          "MerchantID": "10525367",
+          "PlatformID": "10525367",
+          "MerchantTradeNo": "202505201042190000",
+          "ts": "1736843734",
+          "PayID": "11682411000009011",
+          "UsePoint": "0",
+          "ChargeVersionType": "V2",
+          "UsePointType": "1",
+          "AccumulatedPointsType": "1",
+          "Token": "06KBBF3mj0QchDf/ETbLj5Mcl97LfwtFnBqzwlnmpwU\u003d"
+
+        },
+        "specs": {
+          "MerchantID": "交易平台ID",
+          "PlatformID": "平台代碼",
+          "MerchantTradeNo": "交易編號",
+          "ts": "時間戳辨識字串",
+          "PayID": "付款方式ID",
+          "UsePoint": "當UsePointType為1、2時此參數必填UsePointType 如 = 1，而使用者開啟點數開關1.當點數數量大於訂單金額時，帶入訂單金額2.當點數數量小於訂單金額時，帶入點數數量(小數點以後捨去)UsePointType 如 = 2, 可自行輸入點數帶入",
+          "ChargeVersionType": "2/17未來不需帶此參數========================線上支付版本類型.新版本APP才會帶入此參數，如無參數預設為v1版本",
+          "UsePointType": "2/17確認不需帶此參數========================使用點數種類(兌點)0: 不可使用點數折抵1: 可使用點數2: 可自行輸入折抵點數額3: 點數功能維護中",
+          "AccumulatedPointsType": "2/17確認不需帶此參數========================累積點數種類(累點)0: 不可累積點數1: 可累積點數"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0020 財經跨行轉帳",
+        "url": "/app/TransferAccount/SentFISCTransferMsg",
+        "json": {
+
+          "PayChatMID": "14672",
+          "ReceivedChatMID": "3098",
+          "TransferAmount": "20",
+          "Remark": "",
+          "TradeToken": "",
+          "PaymentType": "1",
+          "BankCode": "392",
+          "BankAccount": ""
+
+
+        },
+        "specs": {
+          "PayChatMID": "轉出者ChatMemberID",
+          "ReceivedChatMID": "轉入者聊天會員帳號 (icashPay會員，必填)",
+          "TransferAmount": "轉帳金額",
+          "Remark": "轉帳備註",
+          "TradeToken": "轉帳的交易Token",
+          "PaymentType": "付款方式1：帳戶餘額※預留欄位，目前轉帳付款方式只有帳戶餘額",
+          "BankCode": "機構代號 (非icashPay會員，必填)",
+          "BankAccount": "機構帳號 (非icashPay會員，必填)"
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0025 取得乘車碼",
+        "url": "/app/Payment/CreateTrafficQRCode",
+        "json": {
+
+          "PayID": "11682311000002951",
+          "PaymentType": "1",
+          "Token": ""
+
+        },
+        "specs": {
+          "註:": ""
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0026 取得餘額",
+        "url": "/app/Payment/GetAvailableBalance",
+        "json": {
+
+
+        },
+        "specs": {
+          "註:": ""
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0028 查詢交易訂單結果",
+        "url": "/app/Cashier/QueryOrderForPushNotify",
+        "json": {
+
+          "MerchantTradeNo": "22g5-00yw-1748415336"
+        },
+        "specs": {
+          "註:": "此處需登入Stage帳號，可用cathyf202501 / Aa123456"
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0029 財經QrCode",
+        "url": "/app/Payment/GenerateFiscQRCode",
+        "json": {
+
+          "PayChatMID": "3098",
+          "ReceivedChatMID": "291",
+          "TransferAmount": "168",
+          "TradeToken": "",
+          "PaymentType": "1",
+          "FiscType": "2"
+        },
+        "specs": {
+          "註:": "此處需登入Stage帳號，可用icp09090 / Aa123456"
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0030 查詢轉帳手續費",
+        "url": "/app/TransferAccount/GetFiscHandlingCharge",
+        "json": {
+
+          "TransferAmount": "500"
+        },
+        "specs": {
+          "TransferAmount:": "查詢金額"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0032金融工具複數認證狀態",
+        "url": "/app/TransferAccount/CheckFiscDoubleValidation",
+        "json": {
+        },
+        "specs": {
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0033 11類稅付款",
+        "url": "/app/Cashier/ChargeOnlineFISC",
+        "json": {
+          "RecID": "14119",
+          "Amount": "40",
+          "PayID": "11682311000005856",
+          "UsePoint": "1",
+          "ChargeVersionType": "v2",
+          "UsePointType": "1",
+          "AccumulatedPointsType": "0",
+          "Token": ""
+
+
+        },
+        "specs": {
+
+          "RecID": "納稅訂單流水編號",
+          "Amount": "交易金額",
+          "PayID": "付款方式識別碼",
+          "UsePoint": "UsePointType 如 = 2, 可自行輸入點數帶入",
+          "ChargeVersionType": "線上支付版本類型 新版本APP才會帶入此參數， 如無參數預設為v1版本",
+          "AccumulatedPointsType": "累積點數種類(累點) 0: 不可累積點數1: 可累積點數"
+
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0033 綜所稅",
+        "url": "/app/Cashier/ChargeOnlineFISC",
+        "json": {
+          "RecID": "14119",
+          "Amount": "40",
+          "PayID": "11682511000000776",
+          "UsePoint": "1",
+          "ChargeVersionType": "v2",
+          "UsePointType": "1",
+          "AccumulatedPointsType": "0"
+
+
+
+        },
+        "specs": {
+
+          "RecID": "納稅訂單流水編號",
+          "Amount": "交易金額",
+          "PayID": "付款方式識別碼",
+          "UsePoint": "UsePointType 如 = 2, 可自行輸入點數帶入",
+          "ChargeVersionType": "線上支付版本類型 新版本APP才會帶入此參數， 如無參數預設為v1版本",
+          "AccumulatedPointsType": "累積點數種類(累點) 0: 不可累積點數1: 可累積點數"
+
+
+        }
+      },
+
+
+
+      {
+        "host": "payment",
+        "name": "P0034 確認線上繳費訂單資訊(2022)",
+        "url": "/app/TransferAccount/CheckFiscDoubleValidation",
+        "json": {
+          "CommonID": "",
+          "ItemID": "TPP00046",
+          "BillData": ""
+        },
+        "specs": {
+          "CommonID": "常用帳單ID(參數有值下列可不用帶入",
+          "ItemID": "項目ID",
+          "BillData": "帳單主要查詢資料(水號、車號、電話號碼)"
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "P0035 建立線上繳費訂單(2022)",
+        "url": "/app/OlinePayment/CreateOnlinePaymentOrder",
+        "json": {
+
+          "BillNoList": [ "09195413171120671" ],
+          "EInvoice": "",
+          "Remark": ""
+        },
+        "specs": {
+          "BillNoList": "繳費單流水編號列表",
+          "EInvoice": "訂單如需電子發票",
+          "Remark": "備註：(台電)"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0036 同步更新會員平台點數開關",
+        "url": "/app/Payment/RedeemSettingIcp",
+        "json": {
+          "UseOpPointRedeem": "1"
+
+        },
+        "specs": {
+
+          "UseOpPointRedeem": "點數開關狀態"
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "P0037 查詢QrCode資訊(2022)",
+        "url": "/app/Payment/ParserQrCode",
+        "json": {
+          "MerchantQRcode": "https://biz.icashpay.com.tw/icpplus-cht/ICP.html?H2=9697993302&H3=0109&H5=20250422091743&Q1=1&Q2=79CFC83D3593E3A8E4B5A3F6F033C5D6&Q3=8D25EE3FD61688CC43F74B08D5A9A69B&ENC=Y&SN=CEB202504228481216&S1=DC952B4341BEF0EA&S2=275CEE5F"
+
+        },
+        "specs": {
+
+          "MerchantQRcode": "QRCode 字串"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0038 建立財經繳費訂單(2022)",
+        "url": "/app/Fisc/CreateOnlinePaymentOrder",
+        "json": {
+          "BillNo": "TEST000003497192",
+          "acqInfo": "00,0040042630156100030003000102204811",
+          "deadline": "20301231",
+          "Amount": "100",
+          "Charge": "3",
+          "SeqNo": "974"
+
+        },
+        "specs": {
+
+          "BillNo": "銷帳編號",
+          "acqInfo": "收單行資訊",
+          "deadline": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAADICAMAAAApx+PaAAADAFBMVEUAAADpwaXp7OlcThLDg0fqzJZeTxOfwtj+/vzA2Oifw9qhxNycwNeWvNSmyeD///////5dThGai2G/hjldThHBk11eTxXrxYheTxPHmU9vWBr9/PjNy8gdGBjIqGfex3ljQyCjn5r///+91uWYwt6szeTI3+zV6PLx+v3y8O0TBQKWkIr9+uyPUw0sFwTmpFPRl0/JkErenk+odTlNMhQBAQJqVDj93JFAKhLi8Pi4lWW0il98ZihdThLCgUKNuNPDv7eyra/kz7iHXi3vr1+xejuzgUJEQkW/oG+omXxRQC02Lix2e4JdX2ODrs5AR1ZZOhgyOUS6s6HMlEzdpFnPj0WdjW+Oc0vp5eG6lVD4zIT//tnPiTS8gz6wdTGpaBuobyfWrXGTgV6AaECrfkva2dWmh1ZcT0j579TIgSvIi0SWXBaeYxzWnFLjql7itnc5Hgb46sz///6gekVtYFHu3s7Dh0C4fTjbvoaKgHh9cGVtSSH53qLs3bxeTxJCTWHft25pPhHSnan/wdD6sby8hpIhDAH8563w2rBqWRbFhD2+dyDnoqntr6z//cf/8bny4Ll7WSzLr33ItpLpzJDt1aa1p4fXw6KkbzXx0pfoxYfiw4lhURRfTxMFFy315cNNIgSDUxv58uFoKQO9fC3YlUV7PgZdTxReTxHUp193TyO3eCuwbh+/ikedaS/nvn3VvWO3hkeTajazcyVfUBJfUBLAgDmqe0CacTzl0p3EnFqNPQ7Os0jEoyP///+RYyubm8L4vGldThHJqjSqjh60liC9nSJ3YxaehByReRqEbhj//v1yXxenSBR3ZBw4JguwkSAGLlYPWZwbfNEoj+0aa68ihNqEci8MQ3cbcLkddsRdn+RCk+M8fbkrof/90Ln5pn6SUzOfWzu1YDq7Z0XBbUvgjWn+rob/s4v/u5T/yJ8Njfjwn3jUknLKdFP1kW3rimjhhWXagmDolnDOd1XUfVzTe1rQeljGcU+ESy3OaELjqJCtZ0XzpKX/pp6bQxJmK04gAAAA2HRSTlMAEzFIXIp8g4Oz1/////+oxsjMvrSmalY4NAz///////////////////////////////////////////+eo4D///////////////////z//////v////////////////////7////////////////////k///////+/////77///////////////7////////////////+/////7oaWf///////////5Da///////////////16P//////////Yf///yn////////+/0rg/8Dz4v///////9qavibFAACj0UlEQVR4AezRQwIEQRAEwLEaa9u2R/9/1tq2Kor3ZAAAAAAAAADgfizHC6IkK6osq6qmaQgTQihF2g71CIfT5XZ6PC6vZ8Xnl/xCIBDkQxwXmmHZMAM+I+5JzlokGosnkql0JosQRTiXm+xJ6pjmJuljgnIITx6CMvlCIZ8vTGqiUMjMnkw+XyyVK9VaPdlotlbanW6vPxj2RhHd0BcMw+12+w4wvZZlSYoiX07xS6ItmpZDkTluzH55dqeNRGF40xOrfNtqShh5jJDXBPYwtrE/SKRRRORu4m5giexANs0N0hO39N779p+5945kb+991y9lKoc5eu57Z2bDhnWUv4w34gaulOrE0Hz+WIAEG2QRe+AbKIuyjDWsYCwAeATOwa8Kq4qiqCGW2K3t2bvGHLVr1779e2MsqbGOVPtPqiOdYWY2yw4QxYJQw3+SBBnjDP8av6GELlwL9sAMXSGdMb/P39VN6mX8SV0dBALgX+f6o9q4bQc8VErhGQJXyYHeBNAFgbMWJdfhMhUkDoACdQEhK86XAuIN1+mBnua9vd9A3huJ9PZF+iMxxlpSPwN9YEDzEvJ+jh2MWxKSRQkNFkiXRB0F3TjCqQNiSW90oLd1E4J5SMBQwMG6bevcfxB4HeDGlC1QGR4TlMRgg0OxLAlKlBuLCjr6TULQ+DRhLsVQoK7LATn/IHesxlUtOzwS/YYivaNj4xPR6N4uc2govwY9lV9V6htGHyiwTLr4YY6V4pYsuJhlhSquKHhZl4C8xKEjdYDe3YXQTYAObVynBCsWBV0Xdmxbz/bfIe4gxAeFNCVdpBLxsEMudIp+wScIsEWsQDqFAgNEaHCg85SOcgvoJGF7cuqbzA9PlMvNleiRj8KZ9mKGteSRbv5oe25nGyrTcijPu1CFtM0GcoyxJPlxqfFGCAZkjr6mUiMxEfoxgK5gboJePmRRFZLG8RPb314H7xDfAUz5Ro0cqfOFviYldrK16wCJ6xLGggiTuKkkbiAK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繳費期限格式:yyyyMMdd",
+          "Amount": "繳費金額",
+          "Charge": "手續費",
+          "SeqNo": "QrCode查詢流水號"
+
+        }
+      },
+      {
+        "host": "pluspayment",
+        "name": "P0039 財經繳費付款(2022)",
+        "url": "/app/Fisc/ChargeOnlineFISC",
+        "json": {
+          "AccumulatedPointsType": "1",
+          "ChargeVersionType": "v2",
+          "MerchantID": "10523899",
+          "MerchantTradeNo": "202401151626154375",
+          "PayID": "11682311000001441",
+          "PlatformID": "10523899",
+          "SeqNo": "1308",
+          "UsePoint": "0",
+          "UsePointType": "1",
+          "acqInfo": "00,0040042630156100030003000102204811",
+          "deadline": "20301231",
+          "ts": "2024/01/15 16:26:15"
+
+
+        },
+        "specs": {
+
+          "MerchantID": "交易平台ID",
+          "PlatformID": "平台代碼",
+          "MerchantTradeNo": "交易編號",
+          "acqInfo": "收單行資訊",
+          "deadline": "繳費期限格式:yyyyMMdd",
+          "ts": "時間戳辨識字串",
+          "PayID": "付款方式ID",
+          "UsePoint": "UsePointType 如 = 2, 可自行輸入點數帶入",
+          "ChargeVersionType": "線上支付版本類型 新版本APP才會帶入此參數， 如無參數預設為v1版本",
+          "UsePointType": "使用點數種類(兌點) 0: 不可使用點數折抵 1: 可使用點數 2: 可自行輸入折抵點數額 3: 點數功能維護中",
+          "AccumulatedPointsType": "累積點數種類(累點) 0: 不可累積點數1: 可累積點數",
+          "SeqNo": "QrCode查詢流水號"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0040 線上綁定明細查詢作業(v2)(2022)",
+        "url": "/api/V2/Payment/Binding/ICPBindingQueryD",
+        "json": {
+          "MerchantID": "10526358",
+          "BindingTradeID": "14189"
+
+
+        },
+
+
+        "specs": {
+
+          "MerchantID": "特店業者編號 (APP目前不用帶入)_大都會車隊10513284/UAT統一超商付費會員10544058",
+          "BindingTradeID": "線上交易綁定ID_13113/UAT統一超商付費會員綁定ID_13460"
+
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0041 線上綁定作業",
+        "url": "/api/V2/Payment/Binding/ApplyICPBinding",
+        "json": {
+          "PayID": "11682111000004161",
+          "MerchantID": "",
+          "AppUserID": "10537687",
+          "MerchantTradeNo": "",
+          "BindingTradeID": "13558",
+          "RedeemFlag": "1",
+          "DebitAmt": "",
+          "UserMaxAmtByCycle": "60000"
+
+
+
+        },
+
+
+        "specs": {
+
+          "MerchantID": "特店業者編號 (APP目前不用帶入)_大都會車隊10513284",
+          "BindingTradeID": "線上交易綁定ID_13113",
+          "AppUserID": "UAT統一超商付費會員綁定_GID45634571296863"
+
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0042取商家綁定(V2)",
+        "url": "/api/V2/Payment/Binding/CancelICPBinding,",
+        "json": {
+
+          "MerchantID": "10513284",
+          "BindingTradeID": "13878",
+          "Token": "",
+          "UnBindingDate": "a3847c7123b44553b77cd68e7016efaf",
+          "UnBindingBy": "1"
+
+
+        },
+
+
+        "specs": {
+
+          "MerchantID": "特店業者編號 (APP目前不用帶入)_大都會車隊10513284",
+          "BindingTradeID": "線上交易綁定ID_13113",
+          "Token": "線上綁定扣款碼",
+          "UnBindingDate": "取消綁定時間_Optional",
+          "UnBindingBy": "發起方，1:特店、2:ICP APP"
+
+
+        }
+      },
+
+
+      {
+        "host": "payment",
+        "name": "P0043 修改綁定商家資訊(V2)",
+        "url": "/api/V2/Payment/Binding/UpdatdeICPBinding",
+        "json": {
+
+          "MerchantID": "10513284",
+          "BindingTradeID": "13113",
+          "MaxMonthAmt": "250"
+
+
+        },
+
+
+        "specs": {
+
+          "MerchantID": "特店業者編號 (APP目前不用帶入)_大都會車隊10513284",
+          "BindingTradeID": "線上交易綁定ID_13113",
+          "MaxMonthAmt": "每月扣款金額上限ex:100 (NT$100)"
+
+
+
+        }
+      },
+
+
+
+      {
+        "host": "payment",
+        "name": "P0044 線上綁定查詢作業",
+        "url": "/api/V2/Payment/Binding/ICPBindingQuery",
+        "json": {
+
+        },
+
+
+        "specs": {
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0045 取得已綁定商家明細(v2)(2022)",
+        "url": "/api/V2/Payment/Binding/GetICPBindingQueryD",
+        "json": {
+          "MerchantID": "10524013",
+          "BindingTradeID": "13253"
+
+
+        },
+
+
+        "specs": {
+
+          "MerchantID": "特店業者編號 (APP目前不用帶入)_大都會車隊10513284",
+          "BindingTradeID": "線上交易綁定ID_13113"
+
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0046 取得已綁定商家明細(v2)(2022)",
+        "url": "/api/Payment/Binding/GetICPBindingQueryDV1",
+        "json": {
+          "LogoURL": "",
+          "MerchantID": "10513284",
+          "MerchantName": "大都會車隊",
+          "Note": "每月扣款上限300,000",
+          "BindingTradeID": "13113"
+
+
+        },
+
+
+        "specs": {
+
+          "LogoURL": "特店圖片URL",
+          "MerchantID": "特店業者編號 (APP目前不用帶入)_大都會車隊10513284",
+          "MerchantName": "特店業者名稱",
+          "Note": "金額顯示",
+          "BindingTradeID": "線上交易綁定ID_13113"
+
+
+        }
+      },
+
+
+
+      {
+        "host": "payment",
+        "name": "P0201 檢查轉帳相同金額",
+        "url": "/app/TransferAccount/TransferRecentlyAmountCheck",
+        "json": {
+          "ReceivedAccount": "1682211000002364",
+          "TransferAmount": "25",
+          "BankCode": "392"
+
+        },
+        "specs": {
+          "ReceivedAccount": "轉入者電支帳號",
+          "TransferAmount": "轉帳金額",
+          "BankCode": "銀行代碼"
+
+        }
+      },
+      {
+        "host": "payment",
+        "name": "P0202 檢查收款方帳戶狀態",
+        "url": "/app/TransferAccount/TransferReceivedICPAccountCheck",
+        "json": {
+          "ReceivedICPMID": "1682211000002364"
+
+        },
+        "specs": {
+          "ReceivedICPMID": "轉入者電支帳號"
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0203 限定交通乖車碼",
+        "url": "/app/Payment/CreateTrafficQRCodeLimit",
+        "json": {
+          "PaymentType": "1",
+          "PayID": "11681911000000320",
+          "DctType": "8",
+          "IDType": "1",
+          "Value": "12345678"
+        },
+        "specs": {
+          "PaymentType": "付款方式識別碼"
+
+        }
+      },
+
+      {
+        "host": "payment",
+        "name": "P0204 輪循交易訂單結果",
+        "url": "/app/Cashier/QueryOrderForSET",
+        "json": {
+          "Barcode": [ "IC1601HJ396QU4CDS7" ]
+
+
+        },
+        "specs": {
+          "Barcode": "付款條碼"
+
+        }
+      },
+
+
+
+
+      {
+        "host": "payment",
+        "name": "P0044 線上綁定查詢作業",
+        "url": "/api/V2/Payment/Binding/ICPBindingQuery",
+        "json": {
+        },
+        "specs": {
+
+        }
+      }
+    ]
+  },
+  {
+    "category": "Pos Api",
+    "list": [
+      {
+        "host": "payment",
+        "name": "WC006 POS支付",
+        "url": "/api/Payment/Pos/DeductICPOF",
+        "json": {
+
+          "PlatformID": "default",
+          "MerchantID": "default",
+          "WalletID": "Mock",
+          "Barcode": "",
+          "Amount": 10000,
+          "StoreID": "123",
+          "StoreName": "阿罵店",
+          "PosRefNo": "12345",
+          "MerchantTID": "01",
+          "MerchantTradeNo": "",
+          "MerchantTradeDate": "",
+          "CarrierType": "3J0002",
+          "ItemAmt": 10000,
+          "UtilityAmt": 0,
+          "CommAmt": 0,
+          "ExceptAmt1": 0,
+          "ExceptAmt2": 0,
+          "RedeemFlag": 1,
+          "BonusAmt": 0,
+          "DebitPoint": 0,
+          "NonRedeemAmt": 0,
+          "NonPointAmt": 0,
+          "ItemList": "",
+          "Remark": ""
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號，可用pos123 / Aa1234",
+          "Barcode": "使用 P0001 產生付款條碼",
+          "PlatformID、MerchantID": "帶default時: dev=10020336; beta=10026443; stage=10000001; icashpaystage=10000016",
+          "Amount": "POS API傳入/傳出金額包含2位小數點 e.g. 30000 (NT$300)",
+          "MerchantTradeNo": "帶空值會依時間自動生成",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "ICPOF001",
+        "url": "/api/V2/Payment/POS/DeductICPOF",
+        "json": {
+          "PlatformID": "10536635",
+          "MerchantID": "10536635",
+          "MerchantTradeNo": "Sample20250117064635153",
+          "StoreID": "TM01",
+          "StoreName": "測試商戶1",
+          "MerchantTradeDate": "",
+          "TotalAmount": "10000",
+          "ItemAmt": "10000",
+          "UtilityAmt": "0",
+          "ItemNonRedeemAmt": "0",
+          "UtilityNonRedeemAmt": "0",
+          "NonPointAmt": "0",
+          "Item": [
+            {
+              "ItemNo": "001",
+              "ItemName": "測試商品1",
+              "Quantity": "1"
+            }
+          ],
+
+          "BarCode": "IC193L89FYYW6JISCQ"
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號，可用pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      },
+
+
+      {
+        "host": "payment",
+        "name": "WC008 POS取消交易",
+        "url": "/api/Payment/Pos/Cancel",
+        "json": {
+          "PlatformID": "default",
+          "MerchantID": "default",
+          "TransactionID": "",
+          "StoreID": "123",
+          "StoreName": "阿罵店",
+          "PosRefNo": "12345",
+          "MerchantTID": "01",
+          "MerchantTradeNo": "",
+          "MerchantTradeDate": ""
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號，可用pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "WC009 POS退貨交易",
+        "url": "/api/Payment/Pos/Refund",
+        "json": {
+          "PlatformID": "default",
+          "MerchantID": "default",
+          "TransactionID": "",
+          "Amount": 10000,
+          "StoreID": "123",
+          "StoreName": "阿罵店",
+          "PosRefNo": "12345",
+          "MerchantTID": "01",
+          "MerchantTradeNo": "",
+          "MerchantTradeDate": ""
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號，可用pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001",
+          "Amount": "POS API傳入/傳出金額包含2位小數點 e.g. 30000 (NT$300)",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      },
+
+     
+      {
+        "host": "payment",
+        "name": "WC011 POSPay",
+        "url": "/api/V2/Payment/POS/SETTopUpRefund",
+        "json": {
+          "MID": "10000031",
+          "BankCode": "822",
+          "BankType": 2,
+          "BankAccount": "223344556677",
+          "BranchCode": "0495"
+
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號 pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001"
+        }
+      },
+
+
+      {
+        "host": "payment",
+        "name": "WC013 POS條碼查詢",
+        "url": "/api/Payment/Pos/QueryMemberInfo",
+        "json": {
+          "PlatformID": "10513035",
+          "MerchantID": "10513035",
+          "Barcode": ""
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號 pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "WC014 POS儲值電文",
+        "url": "/api/Payment/POS/SETTopUp",
+        "json": {
+          "PlatformID": "10000266",
+          "MerchantID": "10000266",
+          "Barcode": "88",
+          "Ccy": "TWD",
+          "TopUpAmt": 100,
+          "MerchantTradeNo": "202509061549111",
+          "MerchantTradeDate": "2024/09/10 15:49:30"
+
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號 pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000266",
+          "Barcode": "使用 P0007 產生通路儲值條碼",
+          "TopUpAmt": "此處金額和其他POS api不同，是正常人類數字，不用多兩個零",
+          "MerchantTradeNo": "帶空值會依時間自動生成",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "WC015 POS取消儲值",
+        "url": "/api/Payment/Pos/TopUpCancel",
+        "json": {
+          "PlatformID": "default",
+          "MerchantID": "default",
+          "TransactionID": "",
+          "Barcode": "",
+          "StoreID": "123",
+          "StoreName": "阿罵店",
+          "MerchantTID": "01",
+          "MerchantTradeNo": "",
+          "MerchantTradeDate": ""
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號 pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      },
+      {
+        "host": "payment",
+        "name": "WC016 POS儲值退貨",
+        "url": "/api/Payment/Pos/TopUpRefund",
+        "json": {
+          "PlatformID": "default",
+          "MerchantID": "default",
+          "TransactionID": "",
+          "Barcode": "",
+          "StoreID": "123",
+          "StoreName": "阿罵店",
+          "PosRefNo": "12345",
+          "MerchantTID": "01",
+          "MerchantTradeNo": "",
+          "MerchantTradeDate": ""
+        },
+        "specs": {
+          "註:": "此處需登入Merchant帳號 pos123 / Aa1234",
+          "PlatformID、MerchantID": "default dev=10020336; beta=10026443; stage=10000001",
+          "MerchantTradeDate": "帶空值會依時間自動生成"
+        }
+      }
+    ]
+  },
+  {
+    "category": "Online Api",
+    "list": [
+      {
+        "host": "payment",
+        "name": "WC022 交易授權結果查詢",
+        "url": "/api/Payment/Cashier/QueryOnlineCharge",
+        "json": {
+          "PlatformID": "",
+          "MerchantID": "",
+          "MerchantTradeNo": ""
+        }
+      },
+      {
+        "host": "payment",
+        "name": "WC021 線上退貨交易",
+        "url": "/api/Payment/Cashier/RefundOnline",
+        "json": {
+          "PlatformID": "",
+          "MerchantID": "",
+          "TransactionID": "",
+          "Amount": "",
+          "MerchantTradeNo": "",
+          "MerchantTradeDate": ""
+        }
+      }
+    ]
+  },
+  {
+    "category": "OP Custom Receive Api",
+    "list": [
+
+      {
+        "host": "member",
+        "name": "ICP004 icash會員登入",
+        "url": "/api/Member/OPWebUI/Login",
+        "json": {
+          "LoginID": "icpF002",
+          "PassWord": "Aa123456"
+        },
+        "specs": {
+          "LoginID": "登入帳號",
+          "PassWord": "登入密碼",
+          "TimeStamp": "呼叫時間 (程式會帶)",
+          "Mask": "呼叫驗證碼 (程式會帶)"
+        }
+      },
+
+      {
+        "host": "member",
+        "name": "解戶通知",
+        "url": "/api/Member/OPCustom/NoticeMemberDelete",
+        "json": {
+          "mid": "eaaceb142bc3417eaa319bcf76d8a56c"
+        },
+        "specs": {
+          "mid": "OPMID",
+          "request_time": "呼叫時間 (程式會帶)",
+          "mask": "呼叫驗證碼 (程式會帶)"
+        }
+      }
+
+    ]
+  }
+]

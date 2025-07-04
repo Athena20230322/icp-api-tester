@@ -13,7 +13,7 @@ from Crypto.Signature import pkcs1_15
 from Crypto.Util.Padding import pad, unpad
 
 
-# <editor-fold desc="Cryptographic and API Client Classes">
+# <editor-fold desc="Cryptographic Helper Classes">
 class RsaCryptoHelper:
     def __init__(self):
         self._key = None
@@ -92,73 +92,76 @@ class AesCryptoHelper:
         return unpadded_bytes.decode('utf-8')
 
 
-class CertificateApiClient:
-    def __init__(self, base_url=""):
-        self.base_url = base_url
-        self.rsa_helper = RsaCryptoHelper()
+# </editor-fold>
+
+# <editor-fold desc="API Environment and Client Logic">
+# ******** START: 架構修正 ********
+# 建立一個新的 ApiEnvironment 類別來統一管理狀態
+class ApiEnvironment:
+    def __init__(self, env_name, env_hosts):
+        self.env_name = env_name
+        self.env_hosts = env_hosts
         self.session = requests.Session()
         try:
-            system_proxies = urllib.request.getproxies()
-            self.session.proxies.update(system_proxies)
+            self.session.proxies.update(urllib.request.getproxies())
         except Exception as e:
             print(f"Could not load system proxies: {e}")
+
+        self.rsa_helper = RsaCryptoHelper()
         self._server_public_key = None
         self._client_private_key = None
         self._aes_key = None
         self._aes_iv = None
+        self._aes_client_cert_id = None
         self.is_ready = False
 
-    def _build_url(self, path):
-        return f"{self.base_url.rstrip('/')}/{path.lstrip('/')}"
-
-    def _check_timestamp(self, timestamp_str):
-        try:
-            dt = datetime.strptime(timestamp_str, "%Y/%m/%d %H:%M:%S")
-            if abs((datetime.now() - dt).total_seconds()) > 300:
-                print(f"Warning: Timestamp difference is high for {timestamp_str}")
-        except (ValueError, TypeError):
-            print(f"Could not parse timestamp: {timestamp_str}")
+    def _build_url(self, path, base_url):
+        return f"{base_url.rstrip('/')}/{path.lstrip('/')}"
 
     def _call_raw_api(self, url, data=None, headers=None):
         try:
-            response = self.session.post(url, data=data, headers=headers, timeout=30, verify=True)
+            # 使用 verify=False 是為了繞過可能的公司 SSL 憑證攔截，若環境單純可改回 True
+            response = self.session.post(url, data=data, headers=headers, timeout=30, verify=False)
             response.raise_for_status()
             return response
         except requests.exceptions.RequestException as e:
             raise Exception(f"Network error calling {url}: {e}")
 
-    def _call_certificate_api(self, action, cert_id, server_key, client_key, payload, cert_header):
-        json_payload = json.dumps(payload, ensure_ascii=False)
-        self.rsa_helper.import_pem_public_key(server_key)
-        enc_data = self.rsa_helper.encrypt(json_payload)
-        self.rsa_helper.import_pem_private_key(client_key)
-        signature = self.rsa_helper.sign_data_with_sha256(enc_data)
-        url = self._build_url(action)
-        response = self._call_raw_api(
-            url,
-            data={'EncData': enc_data},
-            headers={cert_header: str(cert_id), 'X-iCP-Signature': signature}
-        )
-        return response.text, response.headers.get('X-iCP-Signature')
-
     def perform_handshake(self):
-        url_get_cert = self._build_url("api/member/Certificate/GetDefaultPucCert")
-        resp = self._call_raw_api(url_get_cert)
+        if self.is_ready:
+            return
 
+        print(f"Performing handshake for environment '{self.env_name}'...")
+        member_base_url = self.env_hosts.get("member")
+        if not member_base_url:
+            raise ValueError(f"'member' host not defined for env '{self.env_name}'")
+
+        # 1. Get Default Public Certificate
+        url_get_cert = self._build_url("api/member/Certificate/GetDefaultPucCert", member_base_url)
+        resp = self._call_raw_api(url_get_cert)
         data_cert = resp.json()
         if data_cert['RtnCode'] != 1:
             raise Exception(f"GetDefaultPucCert Error: {data_cert['RtnMsg']}")
         default_cert_id, default_public_key = data_cert['DefaultPubCertID'], data_cert['DefaultPubCert']
 
+        # 2. Exchange Public Keys
         client_keys = self.rsa_helper.generate_pem_key()
         self._client_private_key = client_keys['private_key']
         pub_key_oneline = "".join(client_keys['public_key'].splitlines()[1:-1])
         payload_exchange = {'ClientPubCert': pub_key_oneline, 'Timestamp': datetime.now().strftime("%Y/%m/%d %H:%M:%S")}
 
-        content_ex, sig_ex = self._call_certificate_api(
-            "api/member/Certificate/ExchangePucCert", default_cert_id, default_public_key,
-            self._client_private_key, payload_exchange, "X-iCP-DefaultPubCertID"
-        )
+        json_payload_ex = json.dumps(payload_exchange, ensure_ascii=False)
+        self.rsa_helper.import_pem_public_key(default_public_key)
+        enc_data_ex = self.rsa_helper.encrypt(json_payload_ex)
+        self.rsa_helper.import_pem_private_key(self._client_private_key)
+        sig_ex = self.rsa_helper.sign_data_with_sha256(enc_data_ex)
+
+        url_exchange = self._build_url("api/member/Certificate/ExchangePucCert", member_base_url)
+        resp_ex = self._call_raw_api(url_exchange, data={'EncData': enc_data_ex},
+                                     headers={"X-iCP-DefaultPubCertID": str(default_cert_id),
+                                              'X-iCP-Signature': sig_ex})
+        content_ex = resp_ex.text
+
         result_ex = json.loads(content_ex)
         if result_ex['RtnCode'] != 1:
             raise Exception(f"ExchangePucCert Error: {result_ex['RtnMsg']}")
@@ -169,37 +172,48 @@ class CertificateApiClient:
         self._server_public_key = data_ex['ServerPubCert']
 
         self.rsa_helper.import_pem_public_key(self._server_public_key)
-        if not self.rsa_helper.verify_sign_data_with_sha256(content_ex, sig_ex):
+        if not self.rsa_helper.verify_sign_data_with_sha256(content_ex, resp_ex.headers.get('X-iCP-Signature')):
             raise Exception("Signature verification failed during key exchange.")
 
-        self._check_timestamp(data_ex['Timestamp'])
-
+        # 3. Generate AES Key
         payload_aes = {'Timestamp': datetime.now().strftime("%Y/%m/%d %H:%M:%S")}
-        content_aes, sig_aes = self._call_certificate_api(
-            "api/member/Certificate/GenerateAES", data_ex['ServerPubCertID'],
-            self._server_public_key, self._client_private_key, payload_aes, "X-iCP-ServerPubCertID"
-        )
+        json_payload_aes = json.dumps(payload_aes, ensure_ascii=False)
+        self.rsa_helper.import_pem_public_key(self._server_public_key)
+        enc_data_aes = self.rsa_helper.encrypt(json_payload_aes)
+        self.rsa_helper.import_pem_private_key(self._client_private_key)
+        sig_aes = self.rsa_helper.sign_data_with_sha256(enc_data_aes)
+
+        url_aes = self._build_url("api/member/Certificate/GenerateAES", member_base_url)
+        resp_aes = self._call_raw_api(url_aes, data={'EncData': enc_data_aes},
+                                      headers={"X-iCP-ServerPubCertID": str(data_ex['ServerPubCertID']),
+                                               'X-iCP-Signature': sig_aes})
+        content_aes = resp_aes.text
+
         result_aes = json.loads(content_aes)
         if result_aes['RtnCode'] != 1:
             raise Exception(f"GenerateAES Error: {result_aes['RtnMsg']}")
 
         self.rsa_helper.import_pem_public_key(self._server_public_key)
-        if not self.rsa_helper.verify_sign_data_with_sha256(content_aes, sig_aes):
+        if not self.rsa_helper.verify_sign_data_with_sha256(content_aes, resp_aes.headers.get('X-iCP-Signature')):
             raise Exception("Signature verification failed during AES generation.")
 
         self.rsa_helper.import_pem_private_key(self._client_private_key)
         decrypted_aes = self.rsa_helper.decrypt(result_aes['EncData'])
         data_aes = json.loads(decrypted_aes)
-        self._check_timestamp(data_aes['Timestamp'])
 
         self._aes_client_cert_id = data_aes['EncKeyID']
         self._aes_key = data_aes['AES_Key']
         self._aes_iv = data_aes['AES_IV']
         self.is_ready = True
+        print(f"Handshake for environment '{self.env_name}' completed successfully.")
 
-    def call_api(self, action, payload):
+    def call_api(self, host_type, action, payload):
         if not self.is_ready:
-            raise Exception("Client is not ready. Perform handshake first.")
+            self.perform_handshake()
+
+        target_base_url = self.env_hosts.get(host_type)
+        if not target_base_url:
+            raise ValueError(f"Host type '{host_type}' not found in env '{self.env_name}'")
 
         if 'Timestamp' not in payload:
             payload['Timestamp'] = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
@@ -211,7 +225,7 @@ class CertificateApiClient:
         self.rsa_helper.import_pem_private_key(self._client_private_key)
         signature = self.rsa_helper.sign_data_with_sha256(enc_data)
 
-        url = self._build_url(action)
+        url = self._build_url(action, target_base_url)
 
         resp = self._call_raw_api(
             url,
@@ -229,7 +243,11 @@ class CertificateApiClient:
         else:
             print(f"Warning: No 'X-iCP-Signature' header in response for API {action}. Skipping verification.")
 
+        if not resp_content.strip():
+            return {"RtnCode": 1, "RtnMsg": "Success (No Content)"}
+
         resp_json = json.loads(resp_content)
+
         if resp_json.get('EncData'):
             decrypted_content = aes_helper.decrypt(resp_json['EncData'])
             final_response = resp_json.copy()
@@ -244,12 +262,9 @@ class CertificateApiClient:
 # <editor-fold desc="Flask Web Application">
 app = Flask(__name__)
 
-# ******** START: 修正部分 ********
-# 建立一個簡單的字典來快取 API client 物件
-# key 是環境名稱 (e.g., 'stage'), value 是 CertificateApiClient 物件
-api_client_cache = {}
-# ******** END: 修正部分 ********
-
+# 全域的環境快取
+# key 是環境名稱 (e.g., 'stage'), value 是 ApiEnvironment 物件
+api_env_cache = {}
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
@@ -454,36 +469,42 @@ def index():
 def proxy_api():
     try:
         data = request.get_json()
-        action = data['action']
+        action_type = data['action']
         env = data['env']
+        host = data.get('host')
 
-        # 如果是重置請求，就從快取中刪除對應的 client
-        if action == 'reset':
-            if env in api_client_cache:
-                del api_client_cache[env]
-                return jsonify({'status': 'ok', 'message': f"Connection for env '{env}' has been reset."})
-            return jsonify({'status': 'ok', 'message': f"No active connection found for env '{env}'."})
+        if action_type == 'reset':
+            if env in api_env_cache:
+                del api_env_cache[env]
+                msg = f"Connection cache for env '{env}' has been reset."
+                print(msg)
+                return jsonify({'status': 'ok', 'message': msg})
+            return jsonify({'status': 'ok', 'message': f"No active connection for env '{env}'."})
 
-        # --- 以下是正常的 query 流程 ---
-        host, target_url, payload = data['host'], data['url'], data['payload']
+        target_url, payload = data['url'], data['payload']
 
-        # 檢查快取中是否已有 client
-        client = api_client_cache.get(env)
+        # ******** START: 修正部分 2 ********
+        # 取得或建立當前環境的 ApiEnvironment 物件
+        if env not in api_env_cache:
+            print(f"No cached environment for '{env}'. Creating new environment object...")
+            env_hosts = load_json_file('EnvHost.json').get(env)
+            if not env_hosts:
+                return jsonify({'error': f"Environment '{env}' not found in EnvHost.json"}), 400
 
-        if not client:
-            print(f"No cached client for env '{env}'. Creating new client and performing handshake...")
-            env_hosts = load_json_file('EnvHost.json')
-            base_url = env_hosts.get(env, {}).get(host)
-            if not base_url:
-                return jsonify({'error': f"Host '{host}' not found for env '{env}'"}), 400
+            # 建立一個新的環境物件，它會管理自己的 session 和加密狀態
+            api_env_cache[env] = ApiEnvironment(env_name=env, env_hosts=env_hosts)
 
-            client = CertificateApiClient(base_url)
-            client.perform_handshake()
-            api_client_cache[env] = client  # 將新建立的 client 存入快取
-        else:
-            print(f"Using cached client for env '{env}'.")
+        # 從快取中取得這個環境的統一管理器
+        environment_client = api_env_cache.get(env)
 
-        result = client.call_api(target_url, payload)
+        # 確保加密握手只在需要時執行一次
+        if not environment_client.is_ready:
+            environment_client.perform_handshake()
+
+        print(f"Using established connection for env '{env}' to call API on host '{host}'.")
+        # 使用這個已建立好狀態的環境物件來呼叫 API
+        result = environment_client.call_api(host_type=host, action=target_url, payload=payload)
+        # ******** END: 修正部分 2 ********
 
         return jsonify(result)
 
@@ -497,6 +518,5 @@ if __name__ == '__main__':
     print("Starting Flask server for ICP API Mock Tool...")
     print("Open http://127.0.0.1:50061 in your web browser.")
     print("Make sure EnvHost.json and MockApi.json are in a 'data' sub-folder.")
-    # ... (前面的 print 敘述)
     app.run(host='0.0.0.0', port=50061, debug=True)
 # </editor-fold>

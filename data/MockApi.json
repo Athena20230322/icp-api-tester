@@ -3487,8 +3487,8 @@
         "name": "P0206 取得轉帳戶名",
         "url": "/app/FiscMobile/AccountInfoQry",
         "json": {
-          "BankCode": "461",
-          "BankAccount": "4619876543210123"
+          "BankCode": "",
+          "BankAccount": ""
 
         },
         "specs": {

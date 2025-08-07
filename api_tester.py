@@ -515,8 +515,13 @@ def proxy_api():
 
 
 if __name__ == '__main__':
+    # Zeabur 會透過環境變數提供 PORT，在本機執行時則預設為 50061
+    port = int(os.environ.get('PORT', 50061))
+
+    # 在生產環境中應關閉偵錯模式 (debug=False)
+    # 在 Zeabur 上將由 Gunicorn 啟動，以下程式碼主要用於本機測試
     print("Starting Flask server for ICP API Mock Tool...")
-    print("Open http://127.0.0.1:50061 in your web browser.")
+    print(f"Open http://127.0.0.1:{port} in your web browser.")
     print("Make sure EnvHost.json and MockApi.json are in a 'data' sub-folder.")
-    app.run(host='0.0.0.0', port=50061, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)
 # </editor-fold>
